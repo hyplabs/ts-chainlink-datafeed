@@ -1,7 +1,13 @@
 import { Chain } from "viem/chains";
 import { EACContract, EVMAddress } from "./types.js";
 import { EAC } from "./abis/EAC.js";
-import { createPublicClient, formatUnits, getContract, http } from "viem";
+import {
+  createPublicClient,
+  fallback,
+  formatUnits,
+  getContract,
+  http,
+} from "viem";
 
 export default class ChainLinkDataFeed {
   private contract: EACContract;
@@ -10,19 +16,37 @@ export default class ChainLinkDataFeed {
   constructor({
     chain,
     contractAddress,
-    rpcUrl,
+    rpcUrls,
+    rank = true,
   }: {
     chain: Chain;
     contractAddress: EVMAddress;
-    rpcUrl: string;
+    rpcUrls: string[];
+    rank?: boolean;
   }) {
-    const viemClient = createPublicClient({
-      batch: {
-        multicall: true,
-      },
-      chain,
-      transport: http(rpcUrl),
-    });
+    let viemClient: ReturnType<typeof createPublicClient>;
+
+    if (rpcUrls.length === 0) throw new Error("No RPC URLs provided");
+
+    if ((rpcUrls.length = 1)) {
+      viemClient = createPublicClient({
+        batch: {
+          multicall: true,
+        },
+        chain,
+        transport: http(rpcUrls[0]),
+      });
+    } else {
+      viemClient = createPublicClient({
+        batch: {
+          multicall: true,
+        },
+        chain,
+        transport: fallback([...rpcUrls.map((url) => http(url))], {
+          rank,
+        }),
+      });
+    }
 
     this.contract = getContract({
       address: contractAddress,
@@ -58,6 +82,20 @@ export default class ChainLinkDataFeed {
    */
   async getLatestRoundData(format = true) {
     const result = await this.contract.read.latestRoundData();
+    if (format) {
+      return this.format(result);
+    }
+    return result;
+  }
+
+  /**
+   * Retrieves round data for a given round ID.
+   * @param roundId The ID of the round to retrieve data for.
+   * @param format Whether or not to format the result.
+   * @returns The round data, optionally formatted.
+   */
+  async getRoundData(roundId: bigint, format = true) {
+    const result = await this.contract.read.getRoundData([roundId]);
     if (format) {
       return this.format(result);
     }
