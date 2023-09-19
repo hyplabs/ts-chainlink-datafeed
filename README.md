@@ -1,6 +1,6 @@
 # ChainLinkDataFeed
 
-This TypeScript project provides a ChainLink data feed that can be used to retrieve data from the Ethereum network. It uses the EAC contract and ABI to retrieve data from the network.
+This TypeScript project provides a ChainLink data feed that can be used to retrieve data from any EVM chain on http://data.chain.link.
 
 ## Setup
 
