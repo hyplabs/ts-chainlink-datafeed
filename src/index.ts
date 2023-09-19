@@ -1,5 +1,5 @@
 import { Chain } from "viem/chains";
-import { EACContract, EVMAddress } from "./types.js";
+import { EACContract, EVMAddress, RoundData } from "./types.js";
 import { EAC } from "./abis/EAC.js";
 import {
   createPublicClient,
@@ -63,7 +63,7 @@ export default class ChainLinkDataFeed {
     });
   }
 
-  format(
+  formatRoundData(
     round:
       | [bigint, bigint, bigint, bigint, bigint]
       | readonly [bigint, bigint, bigint, bigint, bigint]
@@ -83,9 +83,28 @@ export default class ChainLinkDataFeed {
   async getLatestRoundData(format = true) {
     const result = await this.contract.read.latestRoundData();
     if (format) {
-      return this.format(result);
+      return this.formatRoundData(result);
     }
     return result;
+  }
+
+  async *getRoundDataInterval(intervalSeconds: number) {
+    let lastRoundId = 0n;
+    while (true) {
+      const roundData = await this.contract.read.latestRoundData();
+      // Skip if the round ID is the same as the last one
+      if (lastRoundId === roundData[0]) {
+        await new Promise((resolve) =>
+          setTimeout(resolve, intervalSeconds * 1000)
+        );
+        continue;
+      }
+      lastRoundId = roundData[0];
+      yield this.formatRoundData(roundData);
+      await new Promise((resolve) =>
+        setTimeout(resolve, intervalSeconds * 1000)
+      );
+    }
   }
 
   /**
@@ -97,7 +116,7 @@ export default class ChainLinkDataFeed {
   async getRoundData(roundId: bigint, format = true) {
     const result = await this.contract.read.getRoundData([roundId]);
     if (format) {
-      return this.format(result);
+      return this.formatRoundData(result);
     }
     return result;
   }
