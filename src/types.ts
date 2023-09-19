@@ -12,3 +12,5 @@ export type EACContract = GetContractReturnType<
   typeof EAC,
   PublicClient<HttpTransport, Chain>
 >;
+
+export type RoundData = [bigint, bigint, bigint, bigint, bigint];
