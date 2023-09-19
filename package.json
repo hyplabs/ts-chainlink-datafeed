@@ -1,0 +1,24 @@
+{
+  "name": "ts-chainlink-datafeeds",
+  "version": "0.0.1",
+  "description": "Typescript library for interacting with Chainlink datafeeds",
+  "main": "index.js",
+  "repository": "git@github.com:thevolcanomanishere/ts-chainlink-datafeeds.git",
+  "author": "Alex McGonagle",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=development tsx watch src",
+    "start": "tsx src",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
+  },
+  "dependencies": {
+    "@vitest/ui": "^0.34.3",
+    "tsx": "^3.12.8",
+    "typescript": "^5.2.2",
+    "viem": "^1.10.14",
+    "vitest": "^0.34.3"
+  }
+}
