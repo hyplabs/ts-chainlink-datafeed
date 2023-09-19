@@ -8,8 +8,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "NODE_ENV=development tsx watch src",
-    "start": "tsx src",
+    "example": "tsx example/index.ts",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run"
