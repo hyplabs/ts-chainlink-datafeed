@@ -1,10 +1,12 @@
 import { Chain } from "viem/chains";
 import { EACContract, EVMAddress } from "./types.js";
 import { EAC } from "./abis/EAC.js";
-import { createPublicClient, getContract, http } from "viem";
+import { createPublicClient, formatUnits, getContract, http } from "viem";
 
 export default class ChainLinkDataFeed {
   private contract: EACContract;
+  private decimals = 0;
+  private description = "";
   constructor({
     chain,
     contractAddress,
@@ -27,26 +29,55 @@ export default class ChainLinkDataFeed {
       abi: EAC,
       publicClient: viemClient,
     });
+
+    this.contract.read.decimals().then((decimals) => {
+      this.decimals = decimals;
+    });
+
+    this.contract.read.description().then((description) => {
+      this.description = description;
+    });
   }
 
-  async getLatestRoundData() {
-    return this.contract.read.latestRoundData();
+  format(
+    round:
+      | [bigint, bigint, bigint, bigint, bigint]
+      | readonly [bigint, bigint, bigint, bigint, bigint]
+  ) {
+    return {
+      roundId: round[0],
+      answer: formatUnits(round[1], this.decimals),
+      time: new Date(Number(round[2]) * 1000),
+      description: this.description,
+    };
+  }
+
+  /**
+   * @param format (optional) - Whether to format the result in human readable units.
+   * @returns The latest round data.
+   */
+  async getLatestRoundData(format = true) {
+    const result = await this.contract.read.latestRoundData();
+    if (format) {
+      return this.format(result);
+    }
+    return result;
   }
 
   /**
    *
    * @returns The asset pair that the data is for.
    */
-  async getDescription() {
-    return this.contract.read.description();
+  getDescription() {
+    return this.description;
   }
 
   /**
    *
    * @returns The number of decimals the data is represented in.
    */
-  async getDecimals() {
-    return this.contract.read.decimals();
+  getDecimals() {
+    return this.decimals;
   }
 
   /**
