@@ -1,21 +1,17 @@
 import ChainLinkDataFeed from "../src/index.js";
-import { mainnet } from "viem/chains";
+import { polygon } from "viem/chains";
 
 const chainLinkDataFeed = new ChainLinkDataFeed({
-  chain: mainnet,
-  contractAddress: "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
+  chain: polygon,
+  contractAddress: "0xf9680d99d6c9589e2a93a78a04a279e509205945",
   rpcUrls: [
-    "https://eth.llamarpc.com",
-    "https://uk.rpc.blxrbdn.com",
-    "https://eth-mainnet.public.blastapi.io",
-    "https://singapore.rpc.blxrbdn.com",
-    "https://cloudflare-eth.com",
-    "https://rpc.eth.gateway.fm",
-    "https://1rpc.io/eth",
-    "https://rpc.flashbots.net",
+    "https://polygon.llamarpc.com",
+    "https://polygon-bor.publicnode.com",
+    "https://polygon.meowrpc.com",
   ],
 });
 
-const result = await chainLinkDataFeed.getLatestRoundData();
-
-console.log(result);
+const roundDataGenerator = chainLinkDataFeed.getRoundDataInterval(3);
+for await (const roundData of roundDataGenerator) {
+  console.log(roundData);
+}
