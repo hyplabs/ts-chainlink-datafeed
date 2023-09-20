@@ -56,13 +56,30 @@ console.log(await feed.getLatestRoundData());
 const roundDataGenerator = getLatestRoundDataForContractAddresses({
   dataFeeds: setupFeeds,
   viemClient: publicClient,
-  interval: 10,
+  interval: 3,
 });
+
+function clearConsole() {
+  // Clear the console
+  console.clear();
+}
+
+function formatData(data: any[]) {
+  clearConsole();
+
+  data.forEach((item) => {
+    console.log(`🔘 Round ID: ${item.roundId}`);
+    console.log(`📈 Answer: ${item.answer}`);
+    console.log(`⏰ Time: ${item.time}`);
+    console.log(`📝 Description: ${item.description}`);
+    console.log("----------------------------------------");
+  });
+}
 
 // Each time there is new data, log it to the console
 const logData = async () => {
   for await (const roundData of roundDataGenerator) {
-    console.log(roundData);
+    formatData(roundData);
   }
 };
 
