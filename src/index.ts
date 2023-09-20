@@ -1,79 +1,32 @@
 import { Chain } from "viem/chains";
-import { EACContract, EVMAddress, RoundData } from "./types.js";
+import { EACContract, EVMAddress } from "./types.js";
 import { EAC } from "./abis/EAC.js";
-import {
-  createPublicClient,
-  fallback,
-  formatUnits,
-  getContract,
-  http,
-} from "viem";
+import { createPublicClient, getContract } from "viem";
+import { formatRoundData } from "./utils.js";
 
 export default class ChainLinkDataFeed {
   private contract: EACContract;
-  private decimals = 0;
-  private description = "";
+  public decimals = 0;
+  public description = "";
   constructor({
-    chain,
     contractAddress,
-    rpcUrls,
-    rank = true,
+    viemClient,
   }: {
     chain: Chain;
     contractAddress: EVMAddress;
-    rpcUrls: string[];
+    viemClient: ReturnType<typeof createPublicClient>;
     rank?: boolean;
   }) {
-    let viemClient: ReturnType<typeof createPublicClient>;
-
-    if (rpcUrls.length === 0) throw new Error("No RPC URLs provided");
-
-    if ((rpcUrls.length = 1)) {
-      viemClient = createPublicClient({
-        batch: {
-          multicall: true,
-        },
-        chain,
-        transport: http(rpcUrls[0]),
-      });
-    } else {
-      viemClient = createPublicClient({
-        batch: {
-          multicall: true,
-        },
-        chain,
-        transport: fallback([...rpcUrls.map((url) => http(url))], {
-          rank,
-        }),
-      });
-    }
-
     this.contract = getContract({
       address: contractAddress,
       abi: EAC,
       publicClient: viemClient,
     });
-
-    this.contract.read.decimals().then((decimals) => {
-      this.decimals = decimals;
-    });
-
-    this.contract.read.description().then((description) => {
-      this.description = description;
-    });
   }
 
-  formatRoundData(
-    round:
-      | [bigint, bigint, bigint, bigint, bigint]
-      | readonly [bigint, bigint, bigint, bigint, bigint]
-  ) {
-    return {
-      roundId: round[0],
-      answer: formatUnits(round[1], this.decimals),
-      time: new Date(Number(round[2]) * 1000),
-      description: this.description,
-    };
+  async updateMetadata() {
+    this.decimals = await this.contract.read.decimals();
+    this.description = await this.contract.read.description();
   }
 
   /**
@@ -83,7 +36,7 @@ export default class ChainLinkDataFeed {
   async getLatestRoundData(format = true) {
     const result = await this.contract.read.latestRoundData();
     if (format) {
-      return this.formatRoundData(result);
+      return formatRoundData(result, this.decimals, this.description);
     }
     return result;
   }
@@ -100,7 +53,7 @@ export default class ChainLinkDataFeed {
         continue;
       }
       lastRoundId = roundData[0];
-      yield this.formatRoundData(roundData);
+      yield formatRoundData(roundData, this.decimals, this.description);
       await new Promise((resolve) =>
         setTimeout(resolve, intervalSeconds * 1000)
       );
@@ -116,7 +69,7 @@ export default class ChainLinkDataFeed {
   async getRoundData(roundId: bigint, format = true) {
     const result = await this.contract.read.getRoundData([roundId]);
     if (format) {
-      return this.formatRoundData(result);
+      return formatRoundData(result, this.decimals, this.description);
     }
     return result;
   }
@@ -143,5 +96,9 @@ export default class ChainLinkDataFeed {
    */
   async getCurrentPhase() {
     return this.contract.read.phaseId();
+  }
+
+  getContract() {
+    return this.contract;
   }
 }
