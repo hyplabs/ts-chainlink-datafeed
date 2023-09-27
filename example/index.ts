@@ -6,7 +6,6 @@ import {
   setupAllFeeds,
 } from "../src/utils.js";
 import { polygon } from "viem/chains";
-import { EVMAddress } from "../src/types.js";
 
 /**
  * See {@link https://chainlist.org/chain/137}

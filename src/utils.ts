@@ -46,8 +46,8 @@ export async function* getLatestRoundDataForContractAddresses({
 }) {
   const chainLinkDataFeedFunctions = dataFeeds.map((feed) => {
     return {
-      address: feed.getContract().address,
-      abi: feed.getContract().abi,
+      address: feed.contract.address,
+      abi: feed.contract.abi,
       functionName: "latestRoundData" as const,
     };
   });

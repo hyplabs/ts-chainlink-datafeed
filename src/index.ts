@@ -5,7 +5,7 @@ import { createPublicClient, getContract } from "viem";
 import { formatRoundData } from "./utils.js";
 
 export default class ChainLinkDataFeed {
-  private contract: EACContract;
+  public contract: EACContract;
   public decimals = 0;
   public description = "";
   public contractAddress: EVMAddress;
@@ -77,31 +77,11 @@ export default class ChainLinkDataFeed {
   }
 
   /**
-   *
-   * @returns The asset pair that the data is for.
-   */
-  getDescription() {
-    return this.description;
-  }
-
-  /**
-   *
-   * @returns The number of decimals the data is represented in.
-   */
-  getDecimals() {
-    return this.decimals;
-  }
-
-  /**
    * @returns The current phase of the contract.
    *
    */
   async getCurrentPhase() {
     return this.contract.read.phaseId();
-  }
-
-  getContract() {
-    return this.contract;
   }
 
   async getPhaseAggregator() {
