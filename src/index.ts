@@ -8,6 +8,7 @@ export default class ChainLinkDataFeed {
   private contract: EACContract;
   public decimals = 0;
   public description = "";
+  public contractAddress: EVMAddress;
   constructor({
     contractAddress,
     viemClient,
@@ -17,6 +18,7 @@ export default class ChainLinkDataFeed {
     viemClient: ReturnType<typeof createPublicClient>;
     rank?: boolean;
   }) {
+    this.contractAddress = contractAddress;
     this.contract = getContract({
       address: contractAddress,
       abi: EAC,
@@ -100,5 +102,11 @@ export default class ChainLinkDataFeed {
 
   getContract() {
     return this.contract;
+  }
+
+  async getPhaseAggregator() {
+    const phaseId = await this.contract.read.phaseId();
+    const aggregator = await this.contract.read.phaseAggregators([phaseId]);
+    return aggregator as EVMAddress;
   }
 }

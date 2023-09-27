@@ -1,10 +1,12 @@
 import { createPublicClient, fallback, http } from "viem";
 import ChainLinkDataFeed from "../src/index.js";
+import { subscribeToChainLinkPriceUpdate } from "../src/Aggregator.js";
 import {
   getLatestRoundDataForContractAddresses,
   setupAllFeeds,
 } from "../src/utils.js";
 import { polygon } from "viem/chains";
+import { EVMAddress } from "../src/types.js";
 
 /**
  * See {@link https://chainlist.org/chain/137}
@@ -49,38 +51,55 @@ const feeds = contractAddresses.map((address) => {
 
 const setupFeeds = await setupAllFeeds({ dataFeeds: feeds });
 
-// Single data feed
-const feed = setupFeeds[0];
-console.log(await feed.getLatestRoundData());
-
+// Checks the latest round data for all feeds every 3 seconds
 const roundDataGenerator = getLatestRoundDataForContractAddresses({
   dataFeeds: setupFeeds,
   viemClient: publicClient,
   interval: 3,
 });
 
-function clearConsole() {
-  // Clear the console
-  console.clear();
-}
-
-function formatData(data: any[]) {
-  clearConsole();
-
-  data.forEach((item) => {
-    console.log(`🔘 Round ID: ${item.roundId}`);
-    console.log(`📈 Answer: ${item.answer}`);
-    console.log(`⏰ Time: ${item.time}`);
-    console.log(`📝 Description: ${item.description}`);
+for await (const roundData of roundDataGenerator) {
+  for (const data of roundData) {
+    // check if any values in data are undefined
+    if (data === undefined) {
+      continue;
+    }
+    console.log(`Asset: ${data.description}`);
+    console.log(`🔘 Round ID: ${data.roundId}`);
+    if (data.description.includes("USD")) {
+      console.log(`📈 Answer: $${data.answer}`);
+    } else {
+      console.log(`📈 Answer: ${data.answer}`);
+    }
+    console.log(`⏰ Time: ${data.time}`);
     console.log("----------------------------------------");
-  });
+  }
 }
 
-// Each time there is new data, log it to the console
-const logData = async () => {
-  for await (const roundData of roundDataGenerator) {
-    formatData(roundData);
-  }
-};
+// Uses a filter and eth_logs to get the latest round data for all feeds
+const allWatches = feeds.map(async (feed) => {
+  console.log(feed.description);
+  return subscribeToChainLinkPriceUpdate({
+    chainLinkDataDeed: feed,
+    viemClient: publicClient,
+    onLogsEvent: (array) =>
+      array.forEach((item: any) => {
+        console.log(`Asset: ${item.description}`);
+        console.log(`🔘 Round ID: ${item.roundId}`);
+        if (item.description.includes("USD")) {
+          console.log(`📈 Answer: $${item.current}`);
+        } else {
+          console.log(`📈 Answer: ${item.current}`);
+        }
+        console.log(`⏰ Time: ${item.updatedAt}`);
+        console.log("----------------------------------------");
+      }),
+  });
+});
 
-logData();
+const allUnWatches = await Promise.all(allWatches);
+
+// Stop watching after 500 seconds
+setTimeout(() => {
+  allUnWatches.forEach((unWatch) => unWatch());
+}, 500 * 1000);

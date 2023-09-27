@@ -20,6 +20,21 @@ export const formatRoundData = (
   };
 };
 
+export const formatLogWithMetadata = (
+  current: bigint,
+  decimals: number,
+  roundId: bigint,
+  updatedAt: bigint,
+  description: string
+) => {
+  return {
+    roundId,
+    current: formatUnits(current, decimals),
+    updatedAt: new Date(Number(updatedAt) * 1000),
+    description,
+  };
+};
+
 export async function* getLatestRoundDataForContractAddresses({
   dataFeeds,
   viemClient,
