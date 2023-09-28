@@ -9,6 +9,7 @@ export default class ChainLinkDataFeed {
   public decimals = 0;
   public description = "";
   public contractAddress: EVMAddress;
+  public isWorking = true;
   constructor({
     contractAddress,
     viemClient,
@@ -27,8 +28,12 @@ export default class ChainLinkDataFeed {
   }
 
   async updateMetadata() {
-    this.decimals = await this.contract.read.decimals();
-    this.description = await this.contract.read.description();
+    try {
+      this.decimals = await this.contract.read.decimals();
+      this.description = await this.contract.read.description();
+    } catch (e) {
+      this.isWorking = false;
+    }
   }
 
   /**
