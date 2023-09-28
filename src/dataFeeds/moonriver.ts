@@ -1,0 +1,17 @@
+export const moonriverDataFeeds = {
+  "FTM / USD": "0x5e70fc5f38cb930f9be8beaeaf80cf927af3b17e",
+  "MOVR / USD": "0x3f8bfbdc1e79777511c00ad8591cef888c2113c1",
+  "KSM / USD": "0x6e0513145fce707cd743528db7c1cab537de9d1b",
+  "ETH / USD": "0xc3cf399566220dc5ed6c8cfbf8247214af103c72",
+  "BNB / USD": "0xd6b013a65c22c372f995864ccdae202d0194f9bf",
+  "BTC / USD": "0x1b5c6cf9df1cbf30387c24cc7db1787ccf65c797",
+  "USDT / USD": "0xf80dad54af79257d41c30014160349896ca5370a",
+  "FRAX / USD": "0xd080d4760318710e795b0a59f181f6c1512ffb15",
+  "USDC / USD": "0x12870664a77dd55bbdcde32f91eb3244f511ef2e",
+  "BUSD / USD": "0x596129f6abcab2e6e81d19284b78ea73c176d170",
+  "DOT / USD": "0x54b584eb643375c41c55ddd8da4b90124b18d05c",
+  "DAI / USD": "0x7ba0e3ebce25dd3b5a0f36dd7ab34019b863b08d",
+  "LINK / USD": "0xdd27789b504fed690f406a82f16b45a0901172c0",
+  "WBTC / USD": "0xeebbe35b5f397d5bb26fd10d375b01d0f4a791a3",
+  "AAVE / USD": "0x37f35ef6735c594e6e803bc81577bac759d8179c",
+} as const;

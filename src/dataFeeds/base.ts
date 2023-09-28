@@ -1,0 +1,22 @@
+export const baseDataFeeds = {
+  "rETH / ETH": "0xf397bf97280b488ca19ee3093e81c0a77f02e9a5",
+  "SOL / USD": "0x975043adbb80fc32276cbf9bbcfd4a601a12462d",
+  "cbETH / ETH Exchange Rate": "0x868a501e68f3d1e89cfc0d22f6b22e8dabce5f04",
+  "wstETH / ETH Exchange Rate": "0xa669e5272e60f78299f4824495ce01a3923f4380",
+  "wstETH / stETH Exchange Rate": "0xb88bac61a4ca37c43a3725912b1f472c9a5bc061",
+  "APT / USD": "0x88a98431c25329aa422b21d147c1518b34dd36f4",
+  "stETH / ETH": "0xf586d0728a47229e747d824a939000cf21def5a0",
+  "LINK / USD": "0x17cab8fe31e32f08326e5e27412894e49b0f9d65",
+  "COMP / USD": "0x9dda783de64a9d1a60c49ca761ebe528c35ba428",
+  "WBTC / USD": "0xccadc697c55bbb68dc5bcdf8d3cbe83cdd4e071e",
+  "USDT / USD": "0xf19d560eb8d2adf07bd6d13ed03e1d11215721f9",
+  "cbETH / ETH": "0x806b4ac04501c29769051e42783cf04dce41440b",
+  "DAI / USD": "0x591e79239a7d679378ec8c847e5038150364c78f",
+  "ETH / USD": "0x71041dddad3595f9ced3dccfbe3d1f4b0a16bb70",
+  "USDC / USD": "0x7e860098f58bbfc8648a4311b374b1d669a2bc6b",
+  "LINK / ETH": "0xc5e65227fe3385b88468f9a01600017cdc9f3a12",
+  "sfrxETH / frxETH Exchange Rate":
+    "0x1eba1d6941088c8fce2cbcac80754c77871ad093",
+  "SNX / USD": "0xe3971ed6f1a5903321479ef3148b5950c0612075",
+  "cbETH / USD": "0xd7818272b9e248357d13057aab0b417af31e817d",
+} as const;
