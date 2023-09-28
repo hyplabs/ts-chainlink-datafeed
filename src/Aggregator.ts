@@ -1,4 +1,4 @@
-import { createPublicClient, formatLog } from "viem";
+import { createPublicClient } from "viem";
 import { AggregatorABI } from "./abis/Aggregator.js";
 import ChainLinkDataFeed from "./index.js";
 import { formatLogWithMetadata } from "./utils.js";
