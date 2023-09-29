@@ -12,26 +12,38 @@ To use this project, you'll need to have Node.js and Yarn installed on your syst
 
 ## Usage
 
-To use the ChainLinkDataFeed, you can create a new instance of the `ChainLinkDataFeed` class and pass in the required parameters:
-
 ```typescript
-import ChainLinkDataFeed from "../src/index.js";
-import { mainnet } from "viem/chains";
+const RPCUrl =
+  "wss://-------";
 
-const chainLinkDataFeed = new ChainLinkDataFeed({
+const callClient = createPublicClient({
+  transport: webSocket(RPCUrl),
   chain: mainnet,
-  contractAddress: "0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419",
-  rpcUrls: [
-    "https://eth.llamarpc.com",
-    "https://uk.rpc.blxrbdn.com",
-    "https://eth-mainnet.public.blastapi.io",
-    ...
-  ],
+  batch: {
+    multicall: true,
+  },
 });
 
-const result = await chainLinkDataFeed.getLatestRoundData();
+subscribeToChainLinkPriceUpdates({
+  feedAddresses: Object.values(ethereumDataFeeds),
+  publicClient: callClient,
+  onLogsFunction: (array) =>
+    array.forEach((item: any) => {
+      console.log("CALL");
+      console.log(`Asset: ${item.description}`);
+      console.log(`🔘 Round ID: ${item.roundId}`);
+      if (item.description.includes("USD")) {
+        console.log(`📈 Answer: $${item.current}`);
+      } else if (item.description.includes("/ ETH")) {
+        console.log(`📈 Answer: Ξ${item.current}`);
+      } else {
+        console.log(`📈 Answer: ${item.current}`);
+      }
+      console.log(`⏰ Time: ${item.updatedAt}`);
+      console.log("----------------------------------------");
+    }),
+});
 
-console.log(result);
 ```
 
 ## License
