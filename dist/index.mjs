@@ -2203,10 +2203,4 @@ const subscribeToChainLinkPriceUpdates = async ({
   }
 };
 
-var Aggregator = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  subscribeToChainLinkPriceUpdate: subscribeToChainLinkPriceUpdate,
-  subscribeToChainLinkPriceUpdates: subscribeToChainLinkPriceUpdates
-});
-
-export { Aggregator, index as ChainDataFeeds, ChainLinkDataFeed, utils };
+export { index as ChainDataFeeds, ChainLinkDataFeed, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates, utils };

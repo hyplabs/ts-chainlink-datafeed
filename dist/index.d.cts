@@ -1347,13 +1347,4 @@ declare const subscribeToChainLinkPriceUpdates: ({ feedAddresses, publicClient, 
     checkForNewAggregatorInterval?: number | undefined;
 }) => Promise<void>;
 
-declare const Aggregator_subscribeToChainLinkPriceUpdate: typeof subscribeToChainLinkPriceUpdate;
-declare const Aggregator_subscribeToChainLinkPriceUpdates: typeof subscribeToChainLinkPriceUpdates;
-declare namespace Aggregator {
-  export {
-    Aggregator_subscribeToChainLinkPriceUpdate as subscribeToChainLinkPriceUpdate,
-    Aggregator_subscribeToChainLinkPriceUpdates as subscribeToChainLinkPriceUpdates,
-  };
-}
-
-export { Aggregator, index as ChainDataFeeds, ChainLinkDataFeed, utils };
+export { index as ChainDataFeeds, ChainLinkDataFeed, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates, utils };
