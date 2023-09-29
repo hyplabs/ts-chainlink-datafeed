@@ -71,21 +71,20 @@ const getChainlinkDataFeeds = async (url: string) => {
 
 const removeList = ["TOMO / USD", "BNT / ETH"];
 
+const currentModuleURL = import.meta.url;
+const currentModulePath = fileURLToPath(currentModuleURL);
+
 urlList.forEach(async (url) => {
   const result = await getChainlinkDataFeeds(url);
   const split = url.split("/");
   const blockchain = split[split.length - 2];
   const dataFeed = `${blockchain}.ts`;
-  const currentModuleURL = import.meta.url;
-  const currentModulePath = fileURLToPath(currentModuleURL);
+
   const dataFeedPathFull = path.join(
     dirname(currentModulePath),
     "../src/dataFeeds",
     dataFeed
   );
-  // remove the last character from JSON.stringify(result)
-  // JSON.stringify(result) returns a string with a trailing semicolon
-  // we need to remove this semicolon to avoid a syntax error
   const stringifiedResult = JSON.stringify(result);
   fs.writeFile(
     dataFeedPathFull,

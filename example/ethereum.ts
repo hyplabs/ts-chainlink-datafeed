@@ -7,7 +7,6 @@ const RPCUrl =
   "wss://eth-mainnet.g.alchemy.com/v2/sjlKG_gODlckpb49H882ur-bXKbzqvFm";
 
 const callClient = createPublicClient({
-  name: "ArbCall",
   transport: webSocket(RPCUrl),
   chain: mainnet,
   batch: {

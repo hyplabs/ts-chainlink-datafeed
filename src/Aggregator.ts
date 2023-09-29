@@ -5,7 +5,7 @@ import {
   createPublicClient,
 } from "viem";
 import { AggregatorABI } from "./abis/Aggregator.js";
-import ChainLinkDataFeed from "./index.js";
+import ChainLinkDataFeed from "./ChainLinkDataFeed.js";
 import {
   formatLogWithMetadata,
   getPhaseAggregator,

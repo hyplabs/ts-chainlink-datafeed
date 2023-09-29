@@ -1,5 +1,5 @@
 import { createPublicClient, formatUnits } from "viem";
-import ChainLinkDataFeed from "./index.js";
+import ChainLinkDataFeed from "./ChainLinkDataFeed.js";
 
 export const pause = async (seconds: number) => {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));

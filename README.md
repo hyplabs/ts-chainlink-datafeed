@@ -29,7 +29,6 @@ subscribeToChainLinkPriceUpdates({
   publicClient: callClient,
   onLogsFunction: (array) =>
     array.forEach((item: any) => {
-      console.log("CALL");
       console.log(`Asset: ${item.description}`);
       console.log(`🔘 Round ID: ${item.roundId}`);
       if (item.description.includes("USD")) {
