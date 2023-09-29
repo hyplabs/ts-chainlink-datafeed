@@ -1,6 +1,6 @@
 {
   "name": "ts-chainlink-datafeeds",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Typescript library for interacting with Chainlink datafeeds",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
