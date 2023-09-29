@@ -2,7 +2,19 @@
   "name": "ts-chainlink-datafeeds",
   "version": "0.0.1",
   "description": "Typescript library for interacting with Chainlink datafeeds",
-  "main": "index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
   "repository": "git@github.com:thevolcanomanishere/ts-chainlink-datafeeds.git",
   "author": "Alex McGonagle",
   "license": "MIT",
@@ -12,15 +24,15 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
-    "updateAllFeeds": "tsx ./scraper/playwright.ts && prettier --write ./src/dataFeeds/*.ts"
+    "updateAllFeeds": "tsx ./scraper/playwright.ts && prettier --write ./src/dataFeeds/*.ts",
+    "build": "pkgroll"
   },
   "dependencies": {
     "viem": "^1.10.14"
   },
-  "devDependencies": {
+  "optionalDependencies": {
     "playwright": "^1.38.1",
     "prettier": "^3.0.3",
-    "tsup": "^7.2.0",
     "tsx": "^3.13.0",
     "typescript": "^5.2.2",
     "vitest": "^0.34.4"
