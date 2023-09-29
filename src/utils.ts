@@ -1,6 +1,10 @@
 import { createPublicClient, formatUnits } from "viem";
 import ChainLinkDataFeed from "./index.js";
 
+export const pause = async (seconds: number) => {
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+};
+
 export const getPhaseId = (round: BigInt) => {};
 
 export const getRoundNumberInPhase = (round: BigInt) => {};
@@ -64,6 +68,40 @@ export async function* getLatestRoundDataForContractAddresses({
           dataFeeds[index].decimals,
           dataFeeds[index].description
         );
+      }
+    });
+    await new Promise((resolve) => setTimeout(resolve, interval * 1000));
+  }
+}
+
+export async function* getPhaseAggregator({
+  dataFeeds,
+  viemClient,
+  interval = 3,
+}: {
+  dataFeeds: ChainLinkDataFeed[];
+  viemClient: ReturnType<typeof createPublicClient>;
+  interval?: number;
+}) {
+  const chainLinkDataFeedFunctions = dataFeeds.map((feed) => {
+    return {
+      address: feed.contract.address,
+      abi: feed.contract.abi,
+      functionName: "aggregator" as const,
+    };
+  });
+
+  while (true) {
+    const results = await viemClient.multicall({
+      contracts: chainLinkDataFeedFunctions,
+    });
+
+    yield results.map((result, index) => {
+      if (result.status === "success") {
+        return {
+          aggregator: result.result,
+          description: dataFeeds[index].description,
+        };
       }
     });
     await new Promise((resolve) => setTimeout(resolve, interval * 1000));
