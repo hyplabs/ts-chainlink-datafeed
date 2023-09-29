@@ -2154,6 +2154,7 @@ const subscribeToChainLinkPriceUpdates = async ({
       }
     }
   }
+  return unWatchFunctions;
 };
 
 export { index as ChainDataFeeds, ChainLinkDataFeed, formatLogWithMetadata, formatRoundData, setupAllFeeds, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates };

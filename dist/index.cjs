@@ -2158,6 +2158,7 @@ const subscribeToChainLinkPriceUpdates = async ({
       }
     }
   }
+  return unWatchFunctions;
 };
 
 exports.ChainDataFeeds = index;

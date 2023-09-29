@@ -149,4 +149,5 @@ export const subscribeToChainLinkPriceUpdates = async ({
       }
     }
   }
+  return unWatchFunctions;
 };

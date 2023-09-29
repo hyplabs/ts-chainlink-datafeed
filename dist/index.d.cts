@@ -1308,6 +1308,11 @@ declare const subscribeToChainLinkPriceUpdates: ({ feedAddresses, publicClient, 
         description: string;
     }[]) => void;
     checkForNewAggregatorInterval?: number | undefined;
-}) => Promise<void>;
+}) => Promise<{
+    aggregatorContractAddress: `0x${string}`;
+    unWatch: viem.WatchContractEventReturnType;
+    chainLinkDataFeed: ChainLinkDataFeed;
+    description: string;
+}[]>;
 
 export { index as ChainDataFeeds, ChainLinkDataFeed, formatLogWithMetadata, formatRoundData, setupAllFeeds, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates };
