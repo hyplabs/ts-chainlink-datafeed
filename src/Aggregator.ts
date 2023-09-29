@@ -84,7 +84,14 @@ export const subscribeToChainLinkPriceUpdates = async ({
 }: {
   feedAddresses: `0x${string}`[];
   publicClient: PublicClient<WebSocketTransport, Chain>;
-  onLogsFunction: (array: any[]) => void;
+  onLogsFunction: (
+    array: {
+      roundId: bigint;
+      current: string;
+      updatedAt: Date;
+      description: string;
+    }[]
+  ) => void;
   checkForNewAggregatorInterval?: number;
 }) => {
   const allFeedContracts = feedAddresses.map((address) => {

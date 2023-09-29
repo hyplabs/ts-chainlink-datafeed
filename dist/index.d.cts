@@ -1,6 +1,6 @@
 import { Chain as Chain$1 } from 'viem/chains';
 import * as viem from 'viem';
-import { createPublicClient, GetContractReturnType, PublicClient, HttpTransport, Chain, WebSocketTransport } from 'viem';
+import { GetContractReturnType, PublicClient, HttpTransport, Chain, createPublicClient, WebSocketTransport } from 'viem';
 
 declare const EAC: readonly [{
     readonly inputs: readonly [{
@@ -396,9 +396,6 @@ declare const EAC: readonly [{
     readonly type: "function";
 }];
 
-declare const pause: (seconds: number) => Promise<unknown>;
-declare const getPhaseId: (round: BigInt) => void;
-declare const getRoundNumberInPhase: (round: BigInt) => void;
 declare const formatRoundData: (round: [
     bigint,
     bigint,
@@ -423,48 +420,9 @@ declare const formatLogWithMetadata: (current: bigint, decimals: number, roundId
     updatedAt: Date;
     description: string;
 };
-declare function getLatestRoundDataForContractAddresses({ dataFeeds, viemClient, interval, }: {
-    dataFeeds: ChainLinkDataFeed[];
-    viemClient: ReturnType<typeof createPublicClient>;
-    interval?: number;
-}): AsyncGenerator<({
-    roundId: bigint;
-    answer: string;
-    time: Date;
-    description: string;
-} | undefined)[], void, unknown>;
-declare function getPhaseAggregator({ dataFeeds, viemClient, interval, }: {
-    dataFeeds: ChainLinkDataFeed[];
-    viemClient: ReturnType<typeof createPublicClient>;
-    interval?: number;
-}): AsyncGenerator<({
-    aggregator: `0x${string}`;
-    description: string;
-} | undefined)[], void, unknown>;
 declare const setupAllFeeds: ({ dataFeeds, }: {
     dataFeeds: ChainLinkDataFeed[];
 }) => Promise<ChainLinkDataFeed[]>;
-
-declare const utils_pause: typeof pause;
-declare const utils_getPhaseId: typeof getPhaseId;
-declare const utils_getRoundNumberInPhase: typeof getRoundNumberInPhase;
-declare const utils_formatRoundData: typeof formatRoundData;
-declare const utils_formatLogWithMetadata: typeof formatLogWithMetadata;
-declare const utils_getLatestRoundDataForContractAddresses: typeof getLatestRoundDataForContractAddresses;
-declare const utils_getPhaseAggregator: typeof getPhaseAggregator;
-declare const utils_setupAllFeeds: typeof setupAllFeeds;
-declare namespace utils {
-  export {
-    utils_pause as pause,
-    utils_getPhaseId as getPhaseId,
-    utils_getRoundNumberInPhase as getRoundNumberInPhase,
-    utils_formatRoundData as formatRoundData,
-    utils_formatLogWithMetadata as formatLogWithMetadata,
-    utils_getLatestRoundDataForContractAddresses as getLatestRoundDataForContractAddresses,
-    utils_getPhaseAggregator as getPhaseAggregator,
-    utils_setupAllFeeds as setupAllFeeds,
-  };
-}
 
 type EVMAddress = `0x${string}`;
 type EACContract = GetContractReturnType<typeof EAC, PublicClient<HttpTransport, Chain>>;
@@ -1343,8 +1301,13 @@ declare const subscribeToChainLinkPriceUpdate: ({ chainLinkDataDeed: chainLinkDa
 declare const subscribeToChainLinkPriceUpdates: ({ feedAddresses, publicClient, onLogsFunction, checkForNewAggregatorInterval, }: {
     feedAddresses: `0x${string}`[];
     publicClient: PublicClient<WebSocketTransport, Chain>;
-    onLogsFunction: (array: any[]) => void;
+    onLogsFunction: (array: {
+        roundId: bigint;
+        current: string;
+        updatedAt: Date;
+        description: string;
+    }[]) => void;
     checkForNewAggregatorInterval?: number | undefined;
 }) => Promise<void>;
 
-export { index as ChainDataFeeds, ChainLinkDataFeed, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates, utils };
+export { index as ChainDataFeeds, ChainLinkDataFeed, formatLogWithMetadata, formatRoundData, setupAllFeeds, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates };

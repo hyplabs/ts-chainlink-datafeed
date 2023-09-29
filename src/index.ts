@@ -1,6 +1,10 @@
 import ChainLinkDataFeed from "./ChainLinkDataFeed.js";
 import * as ChainDataFeeds from "./dataFeeds/index.js";
-import * as utils from "./utils.js";
+import {
+  formatLogWithMetadata,
+  formatRoundData,
+  setupAllFeeds,
+} from "./utils.js";
 import {
   subscribeToChainLinkPriceUpdate,
   subscribeToChainLinkPriceUpdates,
@@ -9,7 +13,9 @@ import {
 export {
   ChainLinkDataFeed,
   ChainDataFeeds,
-  utils,
+  formatLogWithMetadata,
+  formatRoundData,
+  setupAllFeeds,
   subscribeToChainLinkPriceUpdate,
   subscribeToChainLinkPriceUpdates,
 };

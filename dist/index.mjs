@@ -284,13 +284,6 @@ const EAC = [
   }
 ];
 
-const pause = async (seconds) => {
-  return new Promise((resolve) => setTimeout(resolve, seconds * 1e3));
-};
-const getPhaseId = (round) => {
-};
-const getRoundNumberInPhase = (round) => {
-};
 const formatRoundData = (round, decimals, description) => {
   return {
     roundId: round[0],
@@ -307,34 +300,6 @@ const formatLogWithMetadata = (current, decimals, roundId, updatedAt, descriptio
     description
   };
 };
-async function* getLatestRoundDataForContractAddresses({
-  dataFeeds,
-  viemClient,
-  interval = 3
-}) {
-  const chainLinkDataFeedFunctions = dataFeeds.map((feed) => {
-    return {
-      address: feed.contract.address,
-      abi: feed.contract.abi,
-      functionName: "latestRoundData"
-    };
-  });
-  while (true) {
-    const results = await viemClient.multicall({
-      contracts: chainLinkDataFeedFunctions
-    });
-    yield results.map((result, index) => {
-      if (result.status === "success") {
-        return formatRoundData(
-          result.result,
-          dataFeeds[index].decimals,
-          dataFeeds[index].description
-        );
-      }
-    });
-    await new Promise((resolve) => setTimeout(resolve, interval * 1e3));
-  }
-}
 async function* getPhaseAggregator({
   dataFeeds,
   viemClient,
@@ -368,18 +333,6 @@ const setupAllFeeds = async ({
   await Promise.all(dataFeeds.map((feed) => feed.updateMetadata()));
   return dataFeeds;
 };
-
-var utils = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  pause: pause,
-  getPhaseId: getPhaseId,
-  getRoundNumberInPhase: getRoundNumberInPhase,
-  formatRoundData: formatRoundData,
-  formatLogWithMetadata: formatLogWithMetadata,
-  getLatestRoundDataForContractAddresses: getLatestRoundDataForContractAddresses,
-  getPhaseAggregator: getPhaseAggregator,
-  setupAllFeeds: setupAllFeeds
-});
 
 class ChainLinkDataFeed {
   contract;
@@ -2203,4 +2156,4 @@ const subscribeToChainLinkPriceUpdates = async ({
   }
 };
 
-export { index as ChainDataFeeds, ChainLinkDataFeed, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates, utils };
+export { index as ChainDataFeeds, ChainLinkDataFeed, formatLogWithMetadata, formatRoundData, setupAllFeeds, subscribeToChainLinkPriceUpdate, subscribeToChainLinkPriceUpdates };
