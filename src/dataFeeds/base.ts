@@ -1,4 +1,6 @@
 export const baseDataFeeds = {
+  "YFI / USD": "0xd40e758b5ec80820b68dfc302fc5ce1239083548",
+  "STG / USD": "0x63af8341b62e683b87bb540896bf283d96b4d385",
   "rETH / ETH": "0xf397bf97280b488ca19ee3093e81c0a77f02e9a5",
   "SOL / USD": "0x975043adbb80fc32276cbf9bbcfd4a601a12462d",
   "cbETH / ETH Exchange Rate": "0x868a501e68f3d1e89cfc0d22f6b22e8dabce5f04",

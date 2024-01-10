@@ -1,6 +1,5 @@
 export const moonbeamDataFeeds = {
   "BTC / USD": "0x8c4425e141979c66423a83be2ee59135864487eb",
-  "BUSD / USD": "0x2330fd83662bba3fc62bc48cc935ca58847a8957",
   "WBTC / USD": "0x8211b991d713ddae32326fd69e1e2510f4a653b0",
   "LINK / USD": "0xd61d7398b7734abe7c4b143fe57dc666d2fe83ad",
   "BNB / USD": "0x0147f2ad7f1e2bc51f998cc128a8355d5ae8c32d",

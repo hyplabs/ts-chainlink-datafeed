@@ -8,7 +8,6 @@ export const moonriverDataFeeds = {
   "USDT / USD": "0xf80dad54af79257d41c30014160349896ca5370a",
   "FRAX / USD": "0xd080d4760318710e795b0a59f181f6c1512ffb15",
   "USDC / USD": "0x12870664a77dd55bbdcde32f91eb3244f511ef2e",
-  "BUSD / USD": "0x596129f6abcab2e6e81d19284b78ea73c176d170",
   "DOT / USD": "0x54b584eb643375c41c55ddd8da4b90124b18d05c",
   "DAI / USD": "0x7ba0e3ebce25dd3b5a0f36dd7ab34019b863b08d",
   "LINK / USD": "0xdd27789b504fed690f406a82f16b45a0901172c0",

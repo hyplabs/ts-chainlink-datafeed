@@ -35,6 +35,9 @@ export const arbitrumDataFeeds = {
   "ATOM / USD": "0xcda67618e51762235eaca373894f0c79256768fa",
   "MATIC / USD": "0x52099d4523531f678dfc568a7b1e5038aadce1d6",
   "rETH / ETH Exchange Rate": "0xf3272cafe65b190e76caaf483db13424a3e23dd2",
+  "WOO / USD": "0x5e2b5c5c07cca3437c4d724225bb42c7e55d1597",
+  "EURC / USD": "0xdde3523b6654f4fe9ce890a660b6f9679d5ee6ea",
+  "swETH-ETH Exchange Rate": "0xecd471ef663eceffc7d731a0c7e51007433e6d6e",
   "SOL / USD": "0x24cea4b8ce57cda5058b924b9b9987992450590c",
   "CRV / USD": "0xaebda2c976cfd1ee1977eac079b4382acb849325",
   "DODO / USD": "0xa33a06c119ec08f92735f9cca37e07af08c4f281",
@@ -52,7 +55,6 @@ export const arbitrumDataFeeds = {
   "NFT Blue Chip Total Market Cap":
     "0x8d0e319ebaa8df32e088e469062f85abf2ebe599",
   "GMX / USD": "0xdb98056fecfff59d032ab628337a4887110df3db",
-  "BUSD / USD": "0x8fcb0f3715a82d83270777b3a5f3a7cf95ce8eec",
   "USDD / USD": "0x4ee1f9ec1048979930ac832a3c1d18a0b4955a02",
   "wstETH / ETH": "0xb523ae262d20a936bc152e6023996e46fdc2a95d",
   "cbETH / ETH": "0xa668682974e3f121185a3cd94f00322bec674275",
@@ -78,10 +80,12 @@ export const arbitrumDataFeeds = {
   "SNX / USD": "0x054296f0d036b95531b4e14afb578b80cfb41252",
   "StaFi Staked ETH rETH / ETH Exchange Rate":
     "0x052d4200b624b07262f574af26c71a6553996ab5",
-  "frxETH / ETH Exchange Rate Low":
-    "0x1bd872f3a606471787b1a304ce0356e4e87af930",
+  "IOTX / USD": "0x484a1b29ed1ea038dbd75d7c7293714343363122",
   "STG / USD": "0xe74d69e233fab0d8f48921f2d93adfde44ceb3b7",
   "PENDLE / USD": "0x66853e19d73c0f9301fe099c324a1e9726953433",
   "LDO / USD": "0xa43a34030088e6510feccfb77e88ee5e7ed0fe64",
-  "IOTX / USD": "0x484a1b29ed1ea038dbd75d7c7293714343363122",
+  "frxETH / ETH Exchange Rate Low":
+    "0x1bd872f3a606471787b1a304ce0356e4e87af930",
+  "AVAX / USD": "0x8bf61728eedce2f32c456454d87b5d6ed6150208",
+  "sFRAX-FRAX Exchange Rate": "0x03e4054b11ad01915257be53af03a32abf7837b9",
 } as const;
