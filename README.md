@@ -52,8 +52,7 @@ console.log(
 *  answer: '2379.44',
 *  time: 2024-01-10T13:08:43.000Z,
 *  description: 'ETH / USD'
-* } 
- * 
+* }  
 */
 ```
 
