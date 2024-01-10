@@ -1,8 +1,15 @@
-# ChainLinkDataFeed
+# ⭐️ ts-chainlink-datafeed ⭐️ Free onchain crypto prices
 
 This TypeScript project provides a ChainLink data feed that can be used to retrieve data from any EVM chain on http://data.chain.link.
 
-## Setup
+## 📋 Features
+
+- Get the latest price of any asset featured on [Chainlink](https://data.chain.link/).
+- Redundant RPC support so that you never miss a price update.
+- No reliance on 3rd party APIs like CoinGecko or CoinMarketCap.
+- Supports Ethereum, Polygon, Arbitrum, Xdai, Harmony, Moonriver, Celo, Bsc, Optimism, Avalanche, Fantom, Base, Moonbeam, Metis, Scroll and more.
+
+## 🛠️ Setup
 
 ```bash
 # Yarn
@@ -11,11 +18,11 @@ yarn add ts-chainlink-datafeed
 npm install ts-chainlink-datafeed
 ```
 
-## RPCs
+## 🛜 RPCs
 
 You can get multiple RPCs for each chain from [Chainlist](https://chainlist.org/). If you create a fallback provider, you can have a redundant list of RPCs incase one fails or is slow to respond. The [example](./example/) has some code to help with this. You can use both http and websocket RPCs.
 
-## Get the current data for a single feed
+## 🥇 Get the current data for a single feed
 
 This is most useful for getting the very latest price of a feed.
 
@@ -58,8 +65,7 @@ console.log(
 
 More detailed examples can be found in the [example folder](./example).
 
-
-## Subscribing to one of more price feed updates
+## 🔑 Subscribing to one of more price feed updates
 
 If you need to continually have the very latest price of a feed, you can subscribe to updates. This will give you the latest price whenever there is an update onchain. Different blockchains have different onchain update criteria. The cheaper chains update more frequently.
 
@@ -89,11 +95,11 @@ subscribeToChainLinkPriceUpdates({
 ```
 More detailed examples can be found in the [example folder](./example).
 
-## Custom Chains
+## 🧵 Custom Chains
 
 If you are using a chain that does not have a chain configuration in Viem, you can easily create your own. See [this example for Scroll](./example/scroll.ts).
 
-## License
+## 🧑‍⚖️ License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
