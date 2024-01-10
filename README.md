@@ -46,6 +46,15 @@ console.log(
   "Price of ETH / USD :",
   await ethUsdDataFeed.getLatestRoundData(true)
 );
+/**
+* {
+*  roundId: 36893488147426144869n,
+*  answer: '2379.44',
+*  time: 2024-01-10T13:08:43.000Z,
+*  description: 'ETH / USD'
+* } 
+ * 
+*/
 ```
 
 More detailed examples can be found in the [example folder](./example).
