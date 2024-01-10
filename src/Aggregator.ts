@@ -1,9 +1,4 @@
-import {
-  Chain,
-  PublicClient,
-  WebSocketTransport,
-  createPublicClient,
-} from "viem";
+import { Chain, PublicClient, Transport } from "viem";
 import { AggregatorABI } from "./abis/Aggregator.js";
 import ChainLinkDataFeed from "./ChainLinkDataFeed.js";
 import {
@@ -13,12 +8,17 @@ import {
 } from "./utils.js";
 
 /**
- * Subscribes to ChainLink price update logs and returns a filter object.
- * @param {ChainLinkDataFeed} options.chainLinkDataDeed - The ChainLink data feed object.
- * @param {ReturnType<typeof createPublicClient>} options.viemClient - The VIEM client object.
- * @param {(result: ReturnType<typeof formatLogWithMetadata>[]) => void} options.onLogsEvent - The callback function to handle the logs.
- * @returns {Promise<Filter>} - A Promise that resolves with the filter object. You can unsub using this.
- * @throws {Error} - If one of the log results is missing.
+ * Subscribes to ChainLink price update events and returns an object containing
+ * the aggregator contract address, a function to stop watching the event, the
+ * ChainLink data feed, and the data feed description.
+ *
+ * @param {Object} options - An object containing the ChainLink data feed, the
+ * Viem client, and a callback function to handle the logs event.
+ * @param {ChainLinkDataFeed} options.chainLinkDataDeed - The ChainLink data feed.
+ * @param {PublicClient<Transport, Chain>} options.viemClient - The Viem client.
+ * @param {(result: ReturnType<typeof formatLogWithMetadata>[]) => void} options.onLogsEvent - The callback function to handle the logs event.
+ * @returns {Promise<Object>} - An object containing the aggregator contract address,
+ * a function to stop watching the event, the ChainLink data feed, and the data feed description.
  */
 export const subscribeToChainLinkPriceUpdate = async ({
   chainLinkDataDeed: chainLinkDataFeed,
@@ -26,7 +26,7 @@ export const subscribeToChainLinkPriceUpdate = async ({
   onLogsEvent,
 }: {
   chainLinkDataDeed: ChainLinkDataFeed;
-  viemClient: ReturnType<typeof createPublicClient>;
+  viemClient: PublicClient<Transport, Chain>;
   onLogsEvent: (result: ReturnType<typeof formatLogWithMetadata>[]) => void;
 }) => {
   const aggregatorContractAddress =
@@ -83,7 +83,7 @@ export const subscribeToChainLinkPriceUpdates = async ({
   checkForNewAggregatorInterval = 60,
 }: {
   feedAddresses: `0x${string}`[];
-  publicClient: PublicClient<WebSocketTransport, Chain>;
+  publicClient: PublicClient<Transport, Chain>;
   onLogsFunction: (
     array: {
       roundId: bigint;
@@ -94,60 +94,61 @@ export const subscribeToChainLinkPriceUpdates = async ({
   ) => void;
   checkForNewAggregatorInterval?: number;
 }) => {
-  const allFeedContracts = feedAddresses.map((address) => {
-    return new ChainLinkDataFeed({
-      chain: publicClient.chain,
-      contractAddress: address,
-      viemClient: publicClient,
+  try {
+    const allFeedContracts = feedAddresses.map((address) => {
+      return new ChainLinkDataFeed({
+        contractAddress: address,
+        viemClient: publicClient,
+      });
     });
-  });
 
-  await setupAllFeeds({
-    dataFeeds: allFeedContracts,
-  });
-
-  const allUnWatchPromises = allFeedContracts.map((feed) => {
-    return subscribeToChainLinkPriceUpdate({
-      chainLinkDataDeed: feed,
-      viemClient: publicClient,
-      onLogsEvent: (array) => onLogsFunction(array),
+    await setupAllFeeds({
+      dataFeeds: allFeedContracts,
     });
-  });
 
-  let unWatchFunctions = await Promise.all(allUnWatchPromises);
+    const allUnWatchPromises = allFeedContracts.map((feed) => {
+      return subscribeToChainLinkPriceUpdate({
+        chainLinkDataDeed: feed,
+        viemClient: publicClient,
+        onLogsEvent: (array) => onLogsFunction(array),
+      });
+    });
 
-  const aggregatorGenerator = getPhaseAggregator({
-    dataFeeds: allFeedContracts,
-    viemClient: publicClient,
-    interval: checkForNewAggregatorInterval,
-  });
+    let unWatchFunctions = await Promise.all(allUnWatchPromises);
 
-  for await (const result of aggregatorGenerator) {
-    console.log("Comparing new aggregator addresses");
-    for (const item of result) {
-      // Using the description and the aggregatorAddress, check if any aggregator address has changed. If it has, unwatch the old one and watch the new one, and add it to the unWatchFunctions array
-      const newAddAddress = item?.aggregator;
-      const currentDataFeed = unWatchFunctions.find(
-        (feed) => feed.description === item?.description
-      ) as Awaited<ReturnType<typeof subscribeToChainLinkPriceUpdate>>;
-      const oldAddAddress = currentDataFeed?.aggregatorContractAddress;
-      if (newAddAddress !== oldAddAddress) {
-        console.log("Found new aggregator address for ", item?.description);
-        await currentDataFeed.unWatch();
-        // find index of array for currentDataFeed
-        const index = unWatchFunctions.findIndex((item) => {
-          return item.description === currentDataFeed?.description;
-        });
-        unWatchFunctions.splice(index, 1);
-        const newUnWatch = subscribeToChainLinkPriceUpdate({
-          chainLinkDataDeed: currentDataFeed?.chainLinkDataFeed,
-          viemClient: publicClient,
-          onLogsEvent: (array) => onLogsFunction(array),
-        });
-        const ready = await newUnWatch;
-        unWatchFunctions.push(ready);
+    const aggregatorGenerator = getPhaseAggregator({
+      dataFeeds: allFeedContracts,
+      viemClient: publicClient,
+      interval: checkForNewAggregatorInterval,
+    });
+
+    for await (const result of aggregatorGenerator) {
+      for (const item of result) {
+        // Using the description and the aggregatorAddress, check if any aggregator address has changed. If it has, unwatch the old one and watch the new one, and add it to the unWatchFunctions array
+        const newAddAddress = item?.aggregator;
+        const currentDataFeed = unWatchFunctions.find(
+          (feed) => feed.description === item?.description
+        ) as Awaited<ReturnType<typeof subscribeToChainLinkPriceUpdate>>;
+        const oldAddAddress = currentDataFeed?.aggregatorContractAddress;
+        if (newAddAddress !== oldAddAddress) {
+          await currentDataFeed.unWatch();
+          // find index of array for currentDataFeed
+          const index = unWatchFunctions.findIndex((item) => {
+            return item.description === currentDataFeed?.description;
+          });
+          unWatchFunctions.splice(index, 1);
+          const newUnWatch = subscribeToChainLinkPriceUpdate({
+            chainLinkDataDeed: currentDataFeed?.chainLinkDataFeed,
+            viemClient: publicClient,
+            onLogsEvent: (array) => onLogsFunction(array),
+          });
+          const ready = await newUnWatch;
+          unWatchFunctions.push(ready);
+        }
       }
     }
+    return unWatchFunctions;
+  } catch (error) {
+    console.error(error);
   }
-  return unWatchFunctions;
 };

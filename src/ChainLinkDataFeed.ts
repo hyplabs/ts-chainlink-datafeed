@@ -1,8 +1,22 @@
 import { Chain } from "viem/chains";
-import { EACContract, EVMAddress } from "./types.js";
 import { EAC } from "./abis/EAC.js";
-import { createPublicClient, getContract } from "viem";
+import {
+  GetContractReturnType,
+  HttpTransport,
+  PublicClient,
+  createPublicClient,
+  getContract,
+} from "viem";
 import { formatRoundData } from "./utils.js";
+
+type EACContract = GetContractReturnType<
+  typeof EAC,
+  PublicClient<HttpTransport, Chain>
+>;
+
+type EVMAddress = `0x${string}`;
+
+type RoundDataFormatted = ReturnType<typeof formatRoundData>;
 
 export default class ChainLinkDataFeed {
   public contract: EACContract;
@@ -14,7 +28,6 @@ export default class ChainLinkDataFeed {
     contractAddress,
     viemClient,
   }: {
-    chain: Chain;
     contractAddress: EVMAddress;
     viemClient: ReturnType<typeof createPublicClient>;
     rank?: boolean;
@@ -23,7 +36,7 @@ export default class ChainLinkDataFeed {
     this.contract = getContract({
       address: contractAddress,
       abi: EAC,
-      publicClient: viemClient,
+      client: viemClient,
     });
   }
 
@@ -40,7 +53,11 @@ export default class ChainLinkDataFeed {
    * @param format (optional) - Whether to format the result in human readable units.
    * @returns The latest round data.
    */
-  async getLatestRoundData(format = true) {
+  async getLatestRoundData(format: true): Promise<RoundDataFormatted>;
+  async getLatestRoundData(
+    format: false
+  ): Promise<readonly [bigint, bigint, bigint, bigint, bigint]>;
+  async getLatestRoundData(format: boolean) {
     const result = await this.contract.read.latestRoundData();
     if (format) {
       return formatRoundData(result, this.decimals, this.description);

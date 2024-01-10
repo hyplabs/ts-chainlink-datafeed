@@ -1,8 +1,8 @@
-import { createPublicClient, formatUnits } from "viem";
+import { createPublicClient, formatUnits, http, webSocket } from "viem";
 import ChainLinkDataFeed from "./ChainLinkDataFeed.js";
 
 export const pause = async (seconds: number) => {
-  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+  await new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 };
 
 export const getPhaseId = (round: BigInt) => {};
@@ -36,6 +36,7 @@ export const formatLogWithMetadata = (
     current: formatUnits(current, decimals),
     updatedAt: new Date(Number(updatedAt) * 1000),
     description,
+    decimals,
   };
 };
 
@@ -115,4 +116,9 @@ export const setupAllFeeds = async ({
 }) => {
   await Promise.all(dataFeeds.map((feed) => feed.updateMetadata()));
   return dataFeeds;
+};
+
+export const useWebsocketOrHttpTransport = (rpcUrl: string) => {
+  if (rpcUrl.startsWith("ws")) return webSocket(rpcUrl);
+  return http(rpcUrl);
 };

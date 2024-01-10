@@ -23,6 +23,7 @@ const urlList = [
   "https://data.chain.link/base/base",
   "https://data.chain.link/moonbeam/mainnet",
   "https://data.chain.link/metis/mainnet",
+  "https://data.chain.link/scroll/mainnet",
 ];
 
 const getChainlinkDataFeeds = async (url: string) => {
@@ -69,15 +70,17 @@ const getChainlinkDataFeeds = async (url: string) => {
   return result;
 };
 
-const removeList = ["TOMO / USD", "BNT / ETH"];
-
 const currentModuleURL = import.meta.url;
 const currentModulePath = fileURLToPath(currentModuleURL);
 
-urlList.forEach(async (url) => {
+let blockchains: Record<string, any> = {};
+
+for (const url of urlList) {
   const result = await getChainlinkDataFeeds(url);
   const split = url.split("/");
   const blockchain = split[split.length - 2];
+  blockchains[blockchain] = result;
+
   const dataFeed = `${blockchain}.ts`;
 
   const dataFeedPathFull = path.join(
@@ -95,4 +98,34 @@ urlList.forEach(async (url) => {
       }
     }
   );
+}
+
+let markdown = "";
+Object.keys(blockchains).forEach((blockchain) => {
+  // make first letter of blockchain uppercase
+  const blockChainUpper =
+    blockchain.charAt(0).toUpperCase() + blockchain.slice(1);
+  markdown += `\n\n### ${blockChainUpper}\n\n`;
+  const feeds = blockchains[blockchain];
+  Object.keys(feeds).forEach((feed) => {
+    markdown += `- ${feed}\n`;
+  });
+});
+
+// find the line with "## Included Chainlink Feeds" in the README.md
+const readmePath = path.join(dirname(currentModulePath), "../README.md");
+const readme = fs.readFileSync(readmePath, "utf8");
+const lines = readme.split("\n");
+const index = lines.findIndex((line) =>
+  line.includes("## Included Chainlink Feeds")
+);
+
+// delete everything after the index in the readme
+
+const newReadme = lines.slice(0, index + 1).join("\n") + markdown;
+
+fs.writeFile(readmePath, newReadme, (err) => {
+  if (err) {
+    console.log(err);
+  }
 });

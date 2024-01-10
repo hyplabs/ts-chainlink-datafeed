@@ -1,10 +1,12 @@
 {
   "name": "ts-chainlink-datafeeds",
+  "license": "MIT",
   "version": "0.0.2",
   "description": "Typescript library for interacting with Chainlink datafeeds",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
+  "sideEffects": false,
   "exports": {
     "require": {
       "types": "./dist/index.d.cts",
@@ -15,26 +17,38 @@
       "default": "./dist/index.mjs"
     }
   },
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:thevolcanomanishere/ts-chainlink-datafeeds.git",
+  "keywords": [
+    "chainlink",
+    "datafeed",
+    "viem",
+    "typescript",
+    "ethers"
+  ],
   "author": "Alex McGonagle",
-  "license": "MIT",
   "type": "module",
   "scripts": {
     "example": "tsx example/index.ts",
+    "arbitrum": "tsx example/arbitrum.ts",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
     "updateAllFeeds": "tsx ./scraper/playwright.ts && prettier --write ./src/dataFeeds/*.ts",
-    "build": "pkgroll"
+    "build": "rm -rf dist && tsup src/index.ts --minify --format cjs,esm --dts"
   },
   "dependencies": {
-    "viem": "^1.10.14"
+    "viem": "2.0.5"
   },
-  "optionalDependencies": {
+  "devDependencies": {
+    "@types/node": "^20.10.8",
     "playwright": "^1.38.1",
     "prettier": "^3.0.3",
+    "tsup": "^8.0.1",
     "tsx": "^3.13.0",
     "typescript": "^5.2.2",
-    "vitest": "^0.34.4"
+    "vitest": "^1.1.3"
   }
 }
