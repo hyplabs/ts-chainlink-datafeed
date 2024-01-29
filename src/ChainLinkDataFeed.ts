@@ -1,12 +1,7 @@
-import { Chain } from "viem/chains";
+import type { Chain } from "viem/chains";
 import { EAC } from "./abis/EAC.js";
-import {
-  GetContractReturnType,
-  HttpTransport,
-  PublicClient,
-  createPublicClient,
-  getContract,
-} from "viem";
+import type { GetContractReturnType, HttpTransport, PublicClient } from "viem";
+import { createPublicClient, getContract } from "viem";
 import { formatRoundData } from "./utils.js";
 
 type EACContract = GetContractReturnType<

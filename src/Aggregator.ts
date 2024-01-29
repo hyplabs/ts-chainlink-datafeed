@@ -1,4 +1,4 @@
-import { Chain, PublicClient, Transport } from "viem";
+import type { Chain, PublicClient, Transport } from "viem";
 import { AggregatorABI } from "./abis/Aggregator.js";
 import ChainLinkDataFeed from "./ChainLinkDataFeed.js";
 import {
