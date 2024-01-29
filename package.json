@@ -1,5 +1,5 @@
 {
-  "name": "ts-chainlink-datafeeds",
+  "name": "@hyplabs/ts-chainlink-datafeed",
   "license": "MIT",
   "version": "0.0.2",
   "description": "Typescript library for interacting with Chainlink datafeeds",
@@ -20,7 +20,10 @@
   "files": [
     "dist"
   ],
-  "repository": "git@github.com:thevolcanomanishere/ts-chainlink-datafeeds.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hyplabs/ts-chainlink-datafeed.git"
+  },
   "keywords": [
     "chainlink",
     "datafeed",
@@ -50,5 +53,12 @@
     "tsx": "^3.13.0",
     "typescript": "^5.2.2",
     "vitest": "^1.1.3"
+  },
+  "bugs": {
+    "url": "https://github.com/hyplabs/ts-chainlink-datafeed/issues"
+  },
+  "homepage": "https://github.com/hyplabs/ts-chainlink-datafeed#readme",
+  "directories": {
+    "example": "example"
   }
 }
