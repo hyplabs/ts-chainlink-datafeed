@@ -111,6 +111,10 @@ More detailed examples can be found in the [example folder](./example).
 
 If you are using a chain that does not have a chain configuration in Viem, you can easily create your own. See [this example for Scroll](./example/scroll.ts).
 
+## 🤖 Chainlink Contract Address Scaper
+
+By running the `updateAllFeeds` command in the `package.json`, you can update all of the datafeed helper constants automatically. This function will load up a Chrome browser in headless mode and scrape all of the contract addresses for every single listed feed on the official Chainlink website.
+
 ## 📋 TODO
 
 - [ ] Add support for retrieving the price on a certain day
