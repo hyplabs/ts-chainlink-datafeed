@@ -16,6 +16,7 @@ import {
   subscribeToChainLinkPriceUpdate,
   subscribeToChainLinkPriceUpdates,
 } from "./Aggregator.js";
+import { useDataFeed } from "./useDataFeed.js";
 
 export {
   baseDataFeeds,
@@ -37,4 +38,5 @@ export {
   ChainLinkDataFeed,
   subscribeToChainLinkPriceUpdate,
   subscribeToChainLinkPriceUpdates,
+  useDataFeed,
 };
