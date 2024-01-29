@@ -1,13 +1,13 @@
-# ⭐️ ts-chainlink-datafeed ⭐️ Free onchain crypto prices
+# ⭐️ ts-chainlink-datafeed ⭐️
 
-This TypeScript project provides a ChainLink data feed that can be used to retrieve data from any EVM chain on http://data.chain.link.
+This TypeScript project provides a ChainLink datafeed library that can be used to retrieve data from any EVM chain on http://data.chain.link.
 
 ## 📋 Features
 
 - Get the latest price of any asset featured on [Chainlink](https://data.chain.link/).
 - Redundant RPC support so that you never miss a price update.
 - No reliance on 3rd party APIs like CoinGecko or CoinMarketCap.
-- Supports Ethereum, Polygon, Arbitrum, Xdai, Harmony, Moonriver, Celo, Bsc, Optimism, Avalanche, Fantom, Base, Moonbeam, Metis, Scroll and more.
+- Supports Ethereum, Polygon, Arbitrum, Xdai, Harmony, Moonriver, Celo, Bsc, Optimism, Avalanche, Fantom, Base, Moonbeam, Metis, Scroll and [more](./src/dataFeeds).
 
 ## 🛠️ Setup
 
