@@ -28,19 +28,14 @@ export default function App() {
   const arbitrum = useDataFeed({
     viemClient: polygonClient,
     chainDataFeeds: polygonDataFeeds,
-    feedsToSubscribeTo: [
-      "1INCH / USD",
-      "BNB / USD",
-      "ETH / USD",
-      "MATIC / USD",
-    ],
+    feedsToSubscribeTo: Object.keys(polygonDataFeeds),
   });
 
   const fed = Object.values(arbitrum);
   return (
     <main className="max-w-[1080px] m-auto my-10">
       <Row
-        chainName="Polygon - As price updates come in, they will be displayed below"
+        chainName="Polygon - As prices update onchain, they will be displayed below"
         feeds={fed}
       />
     </main>
