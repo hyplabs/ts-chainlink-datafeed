@@ -11,6 +11,7 @@ import { avalancheDataFeeds } from "./dataFeeds/avalanche.js";
 import { moonbeamDataFeeds } from "./dataFeeds/moonbeam.js";
 import { optimismDataFeeds } from "./dataFeeds/optimism.js";
 import { harmonyDataFeeds } from "./dataFeeds/harmony.js";
+import { scrollDataFeeds } from "./dataFeeds/scroll.js";
 import {
   subscribeToChainLinkPriceUpdate,
   subscribeToChainLinkPriceUpdates,
@@ -29,6 +30,7 @@ export {
   moonbeamDataFeeds,
   optimismDataFeeds,
   harmonyDataFeeds,
+  scrollDataFeeds,
 };
 
 export {

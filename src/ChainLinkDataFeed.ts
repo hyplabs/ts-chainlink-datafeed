@@ -18,6 +18,9 @@ type EVMAddress = `0x${string}`;
 
 type RoundDataFormatted = ReturnType<typeof formatRoundData>;
 
+/**
+ * A ChainLink data feed.
+ */
 export default class ChainLinkDataFeed {
   public contract: EACContract;
   public decimals = 0;
