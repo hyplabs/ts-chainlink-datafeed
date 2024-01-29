@@ -120,10 +120,10 @@ By running the `updateAllFeeds` command in the `package.json`, you can update al
 
 ## 📋 TODO
 
+- [x] React hook
 - [ ] Add support for retrieving the price on a certain day
 - [ ] Add support for retrieving the price at a certain block
 - [ ] Add support for retrieving the price at a certain time range
-- [ ] Create hooks for React, Signals etc.
 
 
 ## 🧑‍⚖️ License
