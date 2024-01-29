@@ -39,6 +39,7 @@ const EthUSD = polygonDataFeeds["ETH / USD"];
 This is most useful for getting the very latest price of a feed.
 
 ```typescript
+import { createPublicClient, webSocket } from "viem";
 
 const RPCUrl = "wss://-------";
 
@@ -82,6 +83,8 @@ More detailed examples can be found in the [example folder](./example).
 If you need to continually have the very latest price of a feed, you can subscribe to updates. This will give you the latest price whenever there is an update onchain. Different blockchains have different onchain update criteria. The cheaper chains update more frequently.
 
 ```typescript
+import { createPublicClient, webSocket } from "viem";
+
 const RPCUrl = "wss://-------" | "https://-----";
 
 const callClient = createPublicClient({
