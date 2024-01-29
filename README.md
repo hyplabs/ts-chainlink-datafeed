@@ -22,6 +22,18 @@ npm install ts-chainlink-datafeed
 
 You can get multiple RPCs for each chain from [Chainlist](https://chainlist.org/). If you create a fallback provider, you can have a redundant list of RPCs incase one fails or is slow to respond. The [example](./example/) has some code to help with this. You can use both http and websocket RPCs.
 
+## 📦 Supported Chains - Extracting a feed
+
+You can get a single feed by importing the chain feed constant that you need and selecting the feed you want. For example, if you want the ETH / USD feed on Polygon, you would do the following:
+
+```typescript
+
+import { polygonDataFeeds } from "ts-chainlink-datafeed";
+
+const EthUSD = polygonDataFeeds["ETH / USD"];
+
+```
+
 ## 🥇 Get the current data for a single feed
 
 This is most useful for getting the very latest price of a feed.
@@ -98,6 +110,14 @@ More detailed examples can be found in the [example folder](./example).
 ## 🧵 Custom Chains
 
 If you are using a chain that does not have a chain configuration in Viem, you can easily create your own. See [this example for Scroll](./example/scroll.ts).
+
+## 📋 TODO
+
+- [ ] Add support for retrieving the price on a certain day
+- [ ] Add support for retrieving the price at a certain block
+- [ ] Add support for retrieving the price at a certain time range
+- [ ] Create hooks for React, Signals etc.
+
 
 ## 🧑‍⚖️ License
 
@@ -854,3 +874,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - BTC / USD
 - DAI / USD
 - rETH / ETH
+
