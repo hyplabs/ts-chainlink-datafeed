@@ -13,9 +13,9 @@ This TypeScript project provides a ChainLink datafeed library that can be used t
 
 ```bash
 # Yarn
-yarn add ts-chainlink-datafeed
+yarn add @hypotenuselabs/ts-chainlink-datafeed
 # NPM
-npm install ts-chainlink-datafeed
+npm install @hypotenuselabs/ts-chainlink-datafeed
 ```
 
 ## 🛜 RPCs
@@ -28,7 +28,7 @@ You can get a single feed by importing the chain feed constant that you need and
 
 ```typescript
 
-import { polygonDataFeeds } from "ts-chainlink-datafeed";
+import { polygonDataFeeds } from "@hypotenuselabs/ts-chainlink-datafeed";
 
 const EthUSD = polygonDataFeeds["ETH / USD"];
 
@@ -43,7 +43,7 @@ This is most useful for getting the very latest price of a feed.
 const RPCUrl = "wss://-------";
 
 const callClient = createPublicClient({
-  transport: webSocket(RPCUrl),
+  transport: webSocket(RPCUrl), // can also use http(RPCUrl) for non wss RPCs
   chain: mainnet,
   batch: {
     multicall: true,
@@ -85,7 +85,7 @@ If you need to continually have the very latest price of a feed, you can subscri
 const RPCUrl = "wss://-------" | "https://-----";
 
 const callClient = createPublicClient({
-  transport: webSocket(RPCUrl),
+  transport: webSocket(RPCUrl), // can also use http(RPCUrl) for non wss RPCs
   chain: mainnet,
   batch: {
     multicall: true,
