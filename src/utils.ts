@@ -5,9 +5,9 @@ export const pause = async (seconds: number) => {
   await new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 };
 
-export const getPhaseId = (round: BigInt) => {};
+// export const getPhaseId = (round: BigInt) => {};
 
-export const getRoundNumberInPhase = (round: BigInt) => {};
+// export const getRoundNumberInPhase = (round: BigInt) => {};
 
 export const formatRoundData = (
   round:

@@ -1,5 +1,5 @@
 {
-  "name": "@hyplabs/ts-chainlink-datafeed",
+  "name": "@hypotenuselabs/ts-chainlink-datafeed",
   "license": "MIT",
   "version": "0.0.2",
   "description": "Typescript library for interacting with Chainlink datafeeds",
