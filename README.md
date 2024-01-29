@@ -125,753 +125,928 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Included Chainlink Feeds
 
-### Ethereum
+### Ethereum Mainnet
 
-- ETH / USD
-- BTC / USD
-- XAG / USD
-- XAU / USD
-- AUD / USD
-- CHF / USD
-- JPY / USD
-- GBP / USD
-- EUR / USD
-- LINK / USD
-- ZRX / ETH
-- BAT / ETH
-- BTC / ETH
-- MANA / ETH
-- KNC / ETH
-- MKR / ETH
-- USDT / ETH
-- USDC / ETH
-- SUSD / ETH
-- TUSD / ETH
-- DAI / ETH
-- LINK / ETH
-- SNX / ETH
-- DAI / USD
-- Fast Gas / Gwei
-- FTM / ETH
-- ENJ / ETH
-- REN / ETH
-- YFI / ETH
-- SXP / USD
-- COMP / ETH
-- AMPL / USD
-- SNX / USD
-- ADA / USD
-- COMP / USD
-- LTC / USD
-- KNC / USD
-- BNB / USD
-- UNI / ETH
-- CRV / ETH
-- AAVE / ETH
-- AAVE / USD
-- MLN / ETH
-- BAL / ETH
-- UNI / USD
-- YFI / USD
-- DOT / USD
-- PAXG / ETH
-- MATIC / USD
-- CAD / USD
-- SUSHI / ETH
 - 1INCH / ETH
-- FTT / ETH
-- ZRX / USD
-- CNY / USD
-- GRT / ETH
-- KRW / USD
-- USDC / USD
-- USDT / USD
-- SGD / USD
-- FIL / ETH
-- AMPL / ETH
-- USDP / ETH
-- WING / USD
-- PERP / ETH
-- TRY / USD
-- FXS / USD
 - 1INCH / USD
-- CRV / USD
-- ANKR / USD
-- HBAR / USD
-- RAI / ETH
-- SAND / USD
-- NZD / USD
-- LDO / ETH
-- DOGE / USD
-- MKR / USD
-- FRAX / ETH
-- SUSHI / USD
-- TRIBE / ETH
-- AVAX / USD
-- FRAX / USD
-- ALCX / ETH
-- stETH / USD
-- WBTC PoR
-- EURt / USD
-- USDP / USD
-- RSR / USD
-- SOL / USD
-- RAI / USD
-- SPELL / USD
-- eFIL Reserves
-- ETH / BTC
-- CACHE Gold Reserves
-- APE / USD
-- CVX / ETH
-- BADGER / ETH
-- XCN / USD
-- GBPT PoR
-- HBTC PoR
-- cbETH / ETH
-- xSushi / ETH
-- TUSD Reserves
-- STBT PoR
-- Swell ETH PoR
-- HOPE PoR
-- EURR Reserves
-- HIGH / USD
-- PYUSD / USD
-- WMXN / ETH
-- CVX - USD
-- OHMv2/ETH
-- TUSD / USD
-- IMX / USD
-- BAL / USD
-- wBTC / BTC
-- Mutant Ape Yacht Club
-- World of Women
-- Cryptoadz
-- Bored Ape Yacht Club
-- VeeFriends
-- Total Marketcap / USD
-- Personal Consumption Expenditures (PCE) US Monthly Index
-- stETH / ETH
-- CAKE / USD
-- Doodles
-- CloneX
-- Cool Cats
-- Azuki
-- Cryptopunks
-- USDD / USD
-- BEANZ OFFICIAL
-- MOONBIRDS
-- rETH / ETH
-- PUDGY PENGUINS
-- OTHERDEED FOR OTHERSIDE
-- GHO / USD
-- STG / USD
-- IB01 / USD
-- CSPX / USD
-- RPL / USD
-- IBTA / USD
-- CRVUSD / USD
-- RDNT / USD
-
-
-### Polygon
-
-- USDT / USD
-- ETH / USD
-- USDC / USD
-- DAI / USD
-- MATIC / USD
-- BTC / USD
 - AAVE / ETH
-- MATIC / ETH
-- LINK / ETH
-- WBTC / ETH
-- DOT / USD
-- DAI / ETH
-- USDC / ETH
-- USDT / ETH
-- WBTC / USD
-- LINK / USD
-- SNX / USD
-- SUSHI / USD
-- SAND / USD
-- BOND / USD
-- CEL / USD
-- FXS / USD
-- DOGE / USD
-- ADA / USD
-- JPY / USD
-- YFI / ETH
-- UNI / ETH
-- CRV / ETH
-- MKR / ETH
-- BCH / USD
-- BAT / USD
-- DASH / USD
-- ETC / USD
-- PAXG / USD
-- XAU / USD
-- XRP / USD
-- XLM / USD
-- ALGO / USD
-- ZEC / USD
-- AUD / USD
-- TUSD / USD
-- CAD / USD
-- TRX / USD
-- LTC / USD
-- OMG / USD
-- EOS / USD
-- GBP / USD
-- UMA / USD
-- MANA / USD
-- COMP / USD
-- KNC / USD
 - AAVE / USD
-- UNI / USD
-- BNB / USD
-- SGD / USD
-- EUR / USD
-- CHF / USD
-- ALCX / USD
-- THETA - USD
-- GHST / ETH
-- BAL / USD
-- ICP / USD
-- MKR / USD
-- SOL / USD
-- 1INCH / USD
-- FARM / USD
-- AVAX / USD
-- YFI / USD
-- OGN / USD
-- STORJ / USD
-- ANT / USD
-- CACHE Gold Reserves
-- BRL / USD
-- bIB01 Reserves
-- bCSPX Reserves
-- bIBTA Reserves
-- QNT / USD
-- bC3M Reserves
-- CNY / USD
-- FTM / USD
-- APE / USD
-- WOO / USD
-- PLN / USD
-- INR / USD
-- KAVA / USD
-- MIMATIC / USD
-- KRW / USD
-- GNS / USD
-- cbETH / ETH
-- FIL / USD
-- wstETH / stETH Exchange Rate
-- TRUMATIC / MATIC Exchange Rate
-
-
-### Arbitrum
-
-- AAVE / USD
-- LINK / USD
-- USDC / USD
-- DAI / USD
-- BTC / USD
-- USDT / USD
-- ETH / USD
-- KRW / USD
-- EUR / USD
-- AUD / USD
-- CNY / USD
-- YFI / USD
-- UNI / USD
-- SUSHI / USD
-- CHF / USD
-- SPELL / USD
-- BTC / ETH
-- PAXG / USD
-- wstETH / stETH Exchange Rate
-- AXS / USD
-- MKR / USD
-- XAG / USD
-- DOT / USD
-- APE / USD
-- DOGE / USD
-- MAGIC / USD
-- DPX / USD
-- COMP / USD
-- BAL / USD
-- KNC / USD
-- XRP / USD
 - ADA / USD
-- NEAR / USD
-- ATOM / USD
-- MATIC / USD
-- rETH / ETH Exchange Rate
-- WOO / USD
-- EURC / USD
-- swETH-ETH Exchange Rate
-- SOL / USD
-- CRV / USD
-- DODO / USD
-- OHMv2 / USD
-- SGD / USD
-- SEK / USD
-- CAD / USD
-- JPY / USD
-- CVX / USD
-- GBP / USD
-- FXS / USD
-- XAU / USD
-- BNB / USD
-- WBTC / USD
-- NFT Blue Chip Total Market Cap
-- GMX / USD
-- USDD / USD
-- wstETH / ETH
-- cbETH / ETH
-- stETH / ETH
-- JOE / USD
-- RDNT / USD
-- TUSD / USD
-- LUSD / USD
+- ALCX / ETH
+- AMPL / ETH
+- AMPL / USD
+- ANKR / USD
+- APE / ETH
+- APE / USD
 - ARB / USD
-- WBTC / BTC
-- stETH / USD
-- Frax / USD
-- BRL / USD
-- GNS / USD
-- frxETH / ETH Exchange Rate High
-- 1INCH / USD
-- TRY / USD
-- FTM / USD
-- CAKE / USD
-- RPL / USD
-- OP / USD
-- SNX / USD
-- StaFi Staked ETH rETH / ETH Exchange Rate
-- IOTX / USD
-- STG / USD
-- PENDLE / USD
-- LDO / USD
-- frxETH / ETH Exchange Rate Low
-- AVAX / USD
-- sFRAX-FRAX Exchange Rate
-
-
-### Xdai
-
-- YFI / USD
-- ETH / USD
-- BTC / USD
-- SUSHI / USD
-- DOT / USD
-- AAVE / USD
-- LINK / USD
-- SNX / USD
-- DAI / USD
-- USDC / USD
-- UNI / USD
-- COMP / USD
-- 1INCH / USD
-- MKR / USD
-- REN / USD
-- CREAM / USD
-- XAU / USD
-- FTT / USD
-- ZIL / USD
-- JPY / USD
-- AVAX / USD
-- SOL / USD
-- BNB / USD
-- GNO / USD
-
-
-### Harmony
-
 - AUD / USD
+- AVAX / USD
+- Azuki Floor Price / ETH
+- BADGER / ETH
+- BAL / ETH
+- BAL / USD
+- BAT / ETH
+- BEANZ Official Floor Price
+- BNB / USD
+- Bored Ape Yacht Club Floor Price / ETH
+- BTC / ETH
 - BTC / USD
-- USDT / USD
-- JPY / USD
-- CRV / USD
-- ETH / USD
-- AXS / USD
-- DAI / USD
-- GBP / USD
-- ONE / USD
-- FRAX / USD
-- ILV / USD
-- EUR / USD
-- AAVE / USD
-- SAND / USD
+- C3M / EUR
+- CacheGold PoR USD
 - CAD / USD
-- LINK / USD
+- CAKE / USD
+- Calculated XSUSHI / ETH
+- CBETH / ETH
 - CHF / USD
+- CloneX Floor Price
+- CNY / USD
+- COMP / ETH
+- COMP / USD
+- Consumer Price Index
+- CoolCats Floor Price
+- CRV / ETH
+- CRV / USD
+- CRVUSD / USD
+- Cryptoadz Floor Price
+- CryptoPunks Floor Price / ETH
+- CSPX / USD
+- CVX / ETH
 - CVX / USD
-- USDC / USD
-- LINK / ONE
-- WBTC / USD
-
-
-### Moonriver
-
-- FTM / USD
-- MOVR / USD
-- KSM / USD
-- ETH / USD
-- BNB / USD
-- BTC / USD
-- USDT / USD
-- FRAX / USD
-- USDC / USD
-- DOT / USD
+- DAI / ETH
 - DAI / USD
-- LINK / USD
-- WBTC / USD
-- AAVE / USD
-
-
-### Celo
-
-- ETH / USD
-- CELO / USD
-- LINK / USD
-- USDT /USD
-- USDC / USD
-- BTC / USD
-- EUR / USD
-
-
-### Bsc
-
-- BNB / USD
-- ETH / USD
-- BTC / USD
-- BTC / BNB
-- USDT / BNB
-- USDC / BNB
-- ETH / BNB
-- BCH / USD
-- XVS / USD
-- USDC / USD
-- SXP / USD
-- LTC / USD
-- LINK / USD
-- USDT / USD
-- FIL / USD
-- XRP / USD
+- DOGE / USD
+- Doodles Floor Price
 - DOT / USD
-- XAU / USD
-- YFI / USD
+- DPI / ETH
+- DPI / USD
+- eFIL PoR
+- ENJ / ETH
+- ENS / USD
+- ETH / BTC
+- ETH / USD
+- EUR / USD
+- EURR Reserves
+- FDUSD / USD
+- FIL / ETH
+- FRAX / ETH
+- FRAX / USD
+- FTM / ETH
+- FTT / ETH
+- FXS / USD
+- GBP / USD
+- GBPT PoR
+- GHO / USD
+- GRT / ETH
+- GRT / USD
+- GUSD / USD
+- HBAR / USD
+- HBTC PoR
+- HIGH / USD
+- HOPE PoR
+- IB01 / USD
+- IBTA / USD
+- IMX / USD
+- JPY / USD
+- KNC / ETH
+- KNC / USD
+- KRW / USD
+- LDO / ETH
+- LINK / ETH
+- LINK / USD
+- LTC / USD
+- LUSD / USD
+- MANA / ETH
+- MATIC / USD
+- MAYC Floor Price
+- MIM / USD
+- MKR / ETH
+- MKR / USD
+- MLN / ETH
+- Moonbirds Floor Price
+- Nexus wETH Reserves
+- NZD / USD
+- OHMv2 / ETH
+- Otherdeed for Otherside Floor Price
+- PAX / ETH
+- PAXG / ETH
+- PERP / ETH
+- Pudgy Penguins Floor Price
+- PYUSD / USD
+- RAI / ETH
+- RAI / USD
+- RDNT / USD
+- REN / ETH
+- RETH / ETH
+- RPL / USD
+- RSR / USD
+- SAND / USD
+- SGD / USD
+- SHIB / ETH
+- SHV / USD
+- SNX / ETH
+- SNX / USD
+- SOL / USD
+- SPELL / USD
+- STBT PoR
+- STETH / ETH
+- STETH / USD
+- STG / USD
+- SUSD / ETH
+- SUSHI / ETH
+- SUSHI / USD
+- SXP / USD
+- Total Marketcap / USD
+- TRIBE / ETH
+- TRY / USD
+- TUSD / ETH
+- TUSD / USD
+- TUSD Reserves
+- UNI / ETH
+- UNI / USD
+- USDC / ETH
+- USDC / USD
+- USDD / USD
+- USDP / USD
+- USDT / ETH
+- USDT / USD
+- VeeFriends Floor Price
+- WBTC / BTC
+- WBTC PoR
+- WING / USD
+- World of Women Floor Price
 - XAG / USD
-- TRX / USD
-- XTZ / BNB
-- YFI / BNB
+- XAU / USD
+- XCN / USD
+- YFI / ETH
+- YFI / USD
+- ZRX / ETH
+- ZRX / USD
+
+
+### Arbitrum Mainnet
+
+- 1INCH / USD
+- AAPL / USD
+- AAVE / USD
+- ADA / USD
+- AMZN / USD
+- APE / USD
+- ARB / USD
+- ATOM / USD
+- AUD / USD
+- AVAX / USD
+- AXS / USD
+- BAL / USD
+- BNB / USD
+- Bored Ape Yacht Club Floor Price / ETH
+- BRL / USD
+- BTC / ETH
+- BTC / USD
+- BTC-USD Total Marketcap
+- CAD / USD
+- CAKE / USD
+- CBETH / ETH
+- cbETH-ETH Exchange Rate
+- CHF / USD
+- CNY / USD
+- COMP / USD
+- CRV / USD
+- CVX / USD
+- DAI / USD
+- DODO / USD
+- DOGE / USD
+- DOT / USD
+- DPX / USD
+- ETH / USD
+- ETH-USD Total Marketcap
+- EUR / USD
+- EURC / USD
+- FRAX / USD
+- frxETH-ETH Exchange Rate High
+- frxETH-ETH Exchange Rate Low
+- FTM / USD
+- FXS / USD
+- GBP / USD
+- gmARB / USD
+- gmBTC / USD
+- gmETH / USD
+- GMX / USD
+- GNS / USD
+- GOOGL / USD
+- IOTX / USD
+- JOE / USD
+- JPY / USD
+- KNC / USD
+- KRW / USD
+- LDO / USD
+- LINK / ETH
+- LINK / USD
+- LUSD / USD
+- MAGIC / USD
+- MATIC / USD
+- META / USD
+- MIM / USD
+- MIMATIC / USD
+- MKR / USD
+- MSFT / USD
+- NEAR / USD
+- NFT Blue Chip Total Market Cap-USD
+- OHM Index
+- OHMv2 / USD
+- OP / USD
+- PAXG / USD
+- PENDLE / USD
+- PEPE / USD
+- PHP / USD
+- RDNT / USD
+- RETH / ETH
+- rETH-ETH Exchange Rate
+- RPL / USD
+- SEK / USD
+- sFRAX / FRAX Exchange Rate
+- sfrxETH-frxETH Exchange Rate
+- SGD / USD
+- SNX / USD
+- SOL / USD
+- SPELL / USD
+- SPY / USD
+- StaFi Staked ETH rETH-ETH Exchange Rate
+- STETH / ETH
+- STETH / USD
+- STG / USD
+- SUSHI / USD
+- swETH / ETH Exchange Rate
+- Total Marketcap USD
+- TRY / USD
+- TSLA / USD
+- TUSD / USD
+- UNI / USD
+- USDC / USD
+- USDD / USD
+- USDT / USD
+- WBTC / BTC
+- WBTC / USD
+- WOO / USD
+- WSTETH / ETH
+- wstETH-stETH Exchange Rate
+- WTI / USD
+- XAG / USD
+- XAU / USD
+- XRP / USD
+- YFI / USD
+
+
+### BNB Chain Mainnet
+
+- 1INCH / USD
+- AAPL / USD
+- AAVE / USD
+- ADA / BNB
+- ADA / USD
+- ALPACA / USD
+- ALPHA / BNB
+- AMZN / USD
+- ATOM / USD
+- AUD / USD
+- AUTO / USD
+- AVAX / USD
+- AXS / USD
+- BAC / USD
+- BAND / BNB
+- BAND / USD
+- BCH / BNB
+- BCH / USD
+- BETH / USD
+- BNB / USD
+- BRL / USD
+- BSW / USD
+- BTC / BNB
+- BTC / ETH
+- BTC / USD
+- C98 / USD
+- CAKE / BNB
+- CAKE / USD
+- Calculated BNBx / USD
+- Calculated SAVAX / USD
+- CFX / USD
+- CHF / USD
+- CHR / USD
+- COIN / USD
+- COMP / USD
+- CRV / USD
+- DAI / BNB
+- DAI / USD
+- DF / USD
+- DODO / USD
+- DOGE / USD
+- DOT / BNB
+- DOT / USD
+- EOS / BNB
+- EOS / USD
+- ETH / BNB
+- ETH / USD
+- EUR / USD
+- FB / USD
+- FDUSD / USD
+- FET / USD
+- FIL / USD
+- FRAX / USD
+- FTM / USD
+- FXS / USD
+- GBP / USD
+- GME / USD
+- GMT / USD
+- GOOGL / USD
+- HIGH / USD
+- ICP / USD
+- INJ / USD
+- INR / USD
+- JPM / USD
+- JPY / USD
+- KAVA / USD
+- KLAY / USD
+- KNC / USD
 - LINA / USD
 - LINK / BNB
-- ADA / BNB
-- BAND / BNB
-- XRP / BNB
-- BCH / BNB
-- EOS / BNB
-- DOT / BNB
-- LTC / BNB
-- UNI / USD
-- JPY / USD
-- EUR / USD
-- WOO / USD
-- ATOM / USD
-- ALPHA / BNB
-- CAKE / BNB
-- TWT / BNB
-- DF / USD
-- PAXG / USD
-- YFII / USD
-- AUTO / USD
-- XTZ / USD
-- DOGE / USD
-- EOS / USD
-- WING / USD
-- ONT / USD
-- CFX / USD
-- COMP / USD
-- SOL / USD
+- LINK / USD
 - LIT / USD
-- REEF / USD
-- AAVE / USD
-- ICP / USD
-- MATIC / USD
-- XVS / BNB
-- BTC / ETH
-- BETH / USD
-- CHR / USD
+- LTC / BNB
+- LTC / USD
 - MASK / USD
-- ALPACA / USD
-- CHF / USD
-- FET / USD
-- INJ / USD
-- TUSD / USD
-- CAKE / USD
-- DODO / USD
-- sAVAX / USD
-- KNC / USD
-- NEAR / USD
-- SGD / USD
-- KLAY / USD
-- VET / USD
-- FDUSD / USD
-- SPELL / USD
-- CRV / USD
-- AUD / USD
-- SHIB / USD
-- ONG / USD
-- SUSHI / USD
-- GBP / USD
-- XLM / USD
-- BRL / USD
-- HIGH / USD
-- C98 / USD
-- FXS / USD
+- MATIC / USD
+- MIM / USD
+- MRNA / USD
+- MS / USD
+- MSFT / USD
 - MXN / USD
-- 1INCH / USD
-- BSW / USD
-- KAVA / USD
-- WIN / USD
+- NEAR / USD
+- NFLX / USD
+- NULS / USD
+- NVDA / USD
+- ONG / USD
+- ONT / USD
+- PAXG / USD
+- PFE / USD
+- PHP / USD
+- QQQ / USD
 - RDNT / USD
+- REEF / USD
+- SGD / USD
+- SHIB / USD
+- SOL / USD
+- SPCE / USD
+- SPELL / USD
+- SPY / USD
+- SUSHI / USD
+- SXP / USD
+- TRX / USD
+- TSLA / USD
+- TSM / USD
+- TUSD / USD
+- TWT / BNB
+- UNI / BNB
+- UNI / USD
+- USDC / BNB
+- USDC / USD
 - USDD / USD
+- USDT / BNB
+- USDT / USD
+- VAI / USD
+- VET / USD
+- WIN / USD
+- WING / USD
+- WOO / USD
+- WTI / USD
+- XAG / USD
+- XAU / USD
+- XLM / USD
+- XRP / BNB
+- XRP / USD
+- XTZ / BNB
+- XTZ / USD
+- XVS / BNB
+- XVS / USD
+- YFI / BNB
+- YFI / USD
+- ZAR / USD
 
 
-### Optimism
+### Gnosis Chain Mainnet
 
-- AXS / USD
-- stETH / USD
+- 1INCH / USD
+- AAVE / USD
+- ALPHA / USD
+- AVAX / USD
+- BAL / USD
 - BNB / USD
+- BTC / USD
+- CHF / USD
+- COMP / USD
+- CREAM / USD
+- CRV / USD
+- DAI / USD
+- DOGE / USD
+- DOT / USD
+- ETH / USD
+- EUR / USD
+- FTT / USD
+- GNO / USD
+- GRT / USD
+- JPY / USD
+- LINK / USD
+- MKR / USD
+- MXN / USD
+- PERP / USD
+- REN / USD
+- SNX / USD
+- SOL / USD
+- STETH / USD
+- SUSHI / USD
+- UMA / USD
+- UNI / USD
+- USDC / USD
+- USDT / USD
+- WBTC / USD
+- wstETH-ETH Exchange Rate
+- XAU / USD
+- YFI / USD
+- ZIL / USD
+
+
+### Optimism Mainnet
+
+- 1INCH / USD
+- AAVE / USD
+- ADA / USD
+- ALGO / USD
+- ANKR / USD
+- APE / USD
+- APT / USD
+- ARB / USD
+- ATOM / USD
+- AUD / USD
+- AVAX / USD
+- AXS / USD
+- BAL / USD
+- BCH / USD
+- BLUR / USD
+- BNB / USD
+- BOND / USD
+- BONK / USD
+- BRL / USD
+- BTC / USD
+- CBETH / ETH
+- CELO / USD
+- COMP / USD
+- CRV / USD
+- DAI / USD
+- DOGE / USD
+- DOT / USD
+- DYDX / USD
+- ENJ / USD
+- EOS / USD
+- ETC / USD
+- ETH / BTC
+- ETH / USD
+- EUR / USD
+- FET / USD
+- FIL / USD
+- FLOKI / USD
 - FLOW / USD
 - FRAX / USD
-- IMX / USD
-- ZIL / USD
-- XAU / USD
-- WAVES / USD
-- FXS / USD
-- LINK / ETH
-- APE / USD
-- XAG / USD
-- SUSD / USD
-- RUNE / USD
-- INR / USD
 - FTM / USD
-- wstETH / stETH Exchange Rate
-- PERP / USD
-- OP / USD
-- KNC / USD
-- DOGE / USD
-- XMR / USD
-- GBP / USD
-- LUSD / USD
-- SUI / USD
-- CELO / USD
-- TRB / USD
-- rETH / ETH
-- BONK / USD
-- PYTH / USD
-- sFRAX-FRAX Exchange Rate
-- SNX / USD
-- UNI / USD
-- AAVE / USD
-- SOL / USD
-- ONE / USD
-- LINK / USD
-- EUR / USD
-- CRV / USD
-- DAI / USD
-- BTC / USD
-- USDC / USD
-- ETH / USD
-- USDT / USD
-- JPY / USD
-- AUD / USD
-- WBTC / USD
-- GMX / USD
-- SHIB / USD
-- LDO / USD
-- BCH / USD
-- ARB / USD
-- ADA / USD
-- APT / USD
-- LTC / USD
-- 1INCH / USD
-- SUSHI / USD
-- ICP / USD
-- wstETH / ETH
-- MKR / USD
-- WLD / USD
-- ETH / BTC
-- ETC / USD
-- YFI / USD
-- INJ / USD
-- XRP / USD
-- TRX / USD
-- cbETH / ETH
-- DOT / USD
-- PEPE / USD
-- MAV / USD
-- RPL / USD
-- COMP / USD
-- wstETH / USD
-- ENJ / USD
-- rETH / ETH Exchange Rate
-- FIL / USD
-- BRL / USD
-- FLOKI / USD
-- BLUR / USD
-- SEI / USD
-- ZRX / USD
-- stETH / ETH
-- EOS / USD
-- ALGO / USD
-- ZEC / USD
-- sfrxETH / frxETH-Exchange-Rate
-- XLM / USD
-- UMA / USD
-
-
-### Avalanche
-
-- LINK / USD
-- USDT / USD
-- DAI / USD
-- AVAX / USD
-- BTC / USD
-- ETH / USD
-- AAVE / USD
-- USDC / USD
-- FRAX / USD
-- CHF / USD
-- SUSHI / USD
-- ALPHA / USD
-- JPY / USD
-- KNC / USD
-- XAU / USD
-- EUR / USD
-- CVX / USD
 - FXS / USD
-- XAVA / USD
+- GBP / USD
+- GMX / USD
+- GRT / USD
+- ICP / USD
+- IMX / USD
+- INJ / USD
+- INR / USD
+- JPY / USD
+- KNC / USD
+- LDO / USD
+- LINK / ETH
+- LINK / USD
+- LTC / USD
+- LUSD / USD
+- MATIC / USD
+- MAV / USD
+- MEME / USD
 - MIMATIC / USD
+- MKR / USD
+- NEAR / USD
+- ONE / USD
+- OP / USD
+- PEPE / USD
+- PERP / USD
+- PYTH / USD
+- RETH / ETH
+- rETH-ETH Exchange Rate
+- RNDR / USD
+- RPL / USD
+- RUNE / USD
+- SAND / USD
+- SEI / USD
+- sFRAX / FRAX Exchange Rate
+- sfrxETH / frxETH-Exchange-Rate
+- SHIB / USD
+- SNX / USD
+- SOL / USD
+- STETH / ETH
+- STETH / USD
+- SUI / USD
+- SUSD / USD
+- SUSHI / USD
+- TIA / USD
+- Total Marketcap USD
+- TRB / USD
+- TRX / USD
+- UMA / USD
+- UNI / USD
+- USDC / USD
+- USDT / USD
+- WAVES / USD
+- WBTC / USD
+- WLD / USD
+- WSTETH / ETH
+- WSTETH / USD
+- wstETH-stETH Exchange Rate
+- XAG / USD
+- XAU / USD
+- XLM / USD
+- XMR / USD
+- XRP / USD
+- XTZ / USD
+- YFI / USD
+- ZEC / USD
+- ZIL / USD
+- ZRX / USD
+
+
+### Polygon Mainnet
+
+- 1INCH / USD
+- AAPL / USD
+- AAVE / ETH
+- AAVE / USD
+- ADA / USD
+- AGEUR / USD
+- ALCX / USD
+- ALGO / USD
+- ALPHA / USD
+- AMZN / USD
+- ANT / USD
+- APE / USD
+- AUD / USD
+- AVAX / USD
+- AXS / USD
+- BADGER / ETH
+- BADGER / USD
+- BAL / ETH
+- BAL / USD
+- BAT / USD
+- bC3M Reserves
+- BCH / USD
+- bCSPX Reserves
+- bIB01 Reserves
+- bIBTA Reserves
+- BNB / USD
+- BOND / USD
+- BRL / USD
+- BTC / ETH
+- BTC / USD
+- BTC-USD Total Marketcap
+- CAD / USD
+- Calculated MaticX / USD
+- Calculated stMATIC / USD
+- CBETH / ETH
+- CEL / USD
+- CGT PoR (ETH)
+- CHF / USD
+- CHZ / USD
+- CNY / USD
+- COMP / USD
+- CRV / ETH
+- CRV / USD
+- CVX / USD
+- DAI / ETH
+- DAI / USD
+- DASH / USD
+- DGB / USD
+- DODO / USD
+- DOGE / USD
+- DOGE-USD Total Marketcap
+- DOT / USD
+- DPI / ETH
+- ENJ / USD
+- EOS / USD
+- ETC / USD
+- ETH / USD
+- ETH-USD Total Marketcap
+- EUR / USD
+- FARM / USD
+- FB / USD
+- FIL / USD
+- FRAX / USD
+- FTM / USD
+- FTT / USD
+- FXS / USD
+- GBP / USD
+- GHST / ETH
+- GHST / USD
+- GNS / USD
+- GOOGL / USD
+- GRT / USD
+- HBAR / USD
+- ibBTC PricePerShare
+- ICP / USD
+- ILS / USD
+- INR / USD
+- JPY / USD
+- KAVA / USD
+- KLAY / USD
+- KNC / USD
+- KRW / USD
+- LINK / ETH
+- LINK / MATIC
+- LINK / USD
+- LTC / USD
+- MANA / USD
+- MATIC / ETH
+- MATIC / USD
+- MIM / USD
+- MIMATIC / USD
+- MKR / ETH
+- MKR / USD
+- MLN / ETH
+- MSFT / USD
+- MXN / USD
+- NZD / USD
+- OGN / USD
+- OHM Index
+- OHMv2 / USD
+- OM / USD
+- OMG / USD
+- PAXG / USD
+- PHP / USD
+- PLA / USD
+- PLN / USD
+- QNT / USD
+- RAI / USD
+- SAND / USD
+- SE / USD
+- SEK / USD
+- SGD / USD
+- SHIB / USD
+- SLP / USD
+- SNX / USD
+- SOL / USD
+- SPY.US
+- STORJ / USD
+- SUSHI / ETH
+- SUSHI / USD
+- THB / USD
+- THETA / USD
+- TRUMATIC-MATIC Exchange Rate
+- TRX / USD
+- TRY / USD
+- TSLA / USD
+- TUSD / USD
+- UMA / USD
+- UNI / ETH
+- UNI / USD
+- USDC / ETH
+- USDC / USD
+- USDT / ETH
+- USDT / USD
+- WBTC / ETH
+- WBTC / USD
+- WOO / USD
+- WSTETH / ETH
+- wstETH-stETH Exchange Rate
+- XAG / USD
+- XAU / USD
+- XLM / USD
+- XMR / USD
+- XRP / USD
+- XTZ / USD
+- YFI / ETH
+- YFI / USD
+- ZEC / USD
+
+
+### Avalanche Mainnet
+
+- AAVE / USD
+- AAVE.e PoR
+- ADA / USD
+- ALPHA / USD
+- APE / USD
+- AVAX / USD
+- AXS / USD
+- BAT / USD
+- BTC / USD
+- BTC.b PoR
 - CAKE / USD
+- Calculated SAVAX / USD
+- CHF / USD
+- CHZ / USD
+- COMP / USD
+- CRV / USD
+- CVX / USD
+- DAI / USD
+- DAI.e PoR
+- DOT / USD
+- ETH / USD
+- EUR / USD
+- EURC / USD
+- FIL / USD
+- FRAX / USD
+- FTM / USD
+- FXS / USD
+- GMX / USD
+- Ion Digital Total Reserve
+- JOE / USD
+- JPY / USD
+- KNC / USD
+- LINK / AVAX
+- LINK / USD
+- LINK.e PoR
+- MANA / USD
+- MATIC / USD
+- MIM / USD
+- MIMATIC / USD
+- MKR / USD
+- NEAR / USD
+- QI / USD
+- SAND / USD
+- SNX / USD
+- SPELL / USD
+- SUSHI / USD
 - TRY / USD
 - TUSD / USD
 - UNI / USD
-- YFI / USD
-- COMP / USD
-- SNX / USD
-- MKR / USD
-- APE / USD
-- BAT / USD
-- ZRX / USD
-- BTC.b
-- DAI.e PoR
-- AAVE.e PoR
+- USDC / USD
+- USDC.e PoR
+- USDT / USD
+- USDT.e PoR
+- WBTC / USD
 - WBTC.e PoR
 - WETH.e PoR
-- Link.e PoR
-- USDT.e PoR
-- USDC.e PoR
-- GMX / USD
-- EURC / USD
-- wstETH / stETH Exchange Rate
-- FTM / USD
-- SPELL / USD
-- QI / USD
-- WBTC / USD
 - WOO / ETH
-- JOE / USD
-- CRV / USD
-- FIL / USD
-
-
-### Fantom
-
-- SNX / USD
-- AAVE / USD
-- FTM / USD
-- SUSHI / USD
-- BNB / USD
-- DAI / USD
-- BTC / USD
-- ETH / USD
-- USDT / USD
-- USDC / USD
-- LINK / USD
-- CHF / USD
-- SPELL / USD
-- MIMATIC / USD
-- ALPACA / USD
-- BOO / USD
-- FRAX / USD
-- EUR / USD
-- CRV / USD
-- WBTC / USD
-- GMX / USD
-
-
-### Base
-
-- YFI / USD
-- STG / USD
-- rETH / ETH
-- SOL / USD
-- cbETH / ETH Exchange Rate
-- wstETH / ETH Exchange Rate
-- wstETH / stETH Exchange Rate
-- APT / USD
-- stETH / ETH
-- LINK / USD
-- COMP / USD
-- WBTC / USD
-- USDT / USD
-- cbETH / ETH
-- DAI / USD
-- ETH / USD
-- USDC / USD
-- LINK / ETH
-- sfrxETH / frxETH Exchange Rate
-- SNX / USD
-- cbETH / USD
-
-
-### Moonbeam
-
-- BTC / USD
-- WBTC / USD
-- LINK / USD
-- BNB / USD
-- USDC / USD
-- ETH / USD
-- ATOM / USD
-- USDT / USD
-- BRL / USD
-- DAI / USD
-- CAKE / USD
-
-
-### Metis
-
-- LINK / USD
-- AAVE / USD
-- METIS / USD
-- USDC / USD
-- BTC / USD
-- USDT / USD
-- ETH / USD
-
-
-### Scroll
-
 - wstETH-stETH Exchange Rate
-- USDC / USD
+- XAU / USD
+- XAVA / USD
+- YFI / USD
+- ZRX / USD
+
+
+### Fantom Opera
+
+- AAVE / USD
+- ALPACA / USD
+- BNB / USD
+- BOO / USD
+- BTC / USD
+- Calculated sFTMX / USD
+- CHF / USD
+- CREAM / USD
+- CRV / USD
+- DAI / USD
 - ETH / USD
+- EUR / USD
+- FRAX / USD
+- FTM / USD
+- GMX / USD
+- LINK / FTM
 - LINK / USD
+- MIM / USD
+- MIMATIC / USD
+- OHM Index
+- SNX / USD
+- SPELL / USD
+- SUSHI / USD
+- USDC / USD
 - USDT / USD
+- WBTC / USD
+- YFI / USD
+
+
+### Linea Mainnet
+
+- AAVE / USD
+- ARB / USD
 - BTC / USD
 - DAI / USD
-- rETH / ETH
+- ETH / USD
+- EUR / USD
+- LINK / USD
+- MATIC / USD
+- USDC / USD
+- USDT / USD
+- WSTETH / USD
 
+
+### Metis Mainnet
+
+- AAVE / USD
+- BTC / USD
+- DAI / USD
+- ETH / USD
+- LINK / USD
+- METIS / USD
+- MIMATIC / USD
+- USDC / USD
+- USDT / USD
+
+
+### Moonriver Mainnet
+
+- AAVE / USD
+- BNB / USD
+- BTC / USD
+- DAI / USD
+- DOT / USD
+- ETH / USD
+- FRAX / USD
+- FTM / USD
+- KSM / USD
+- LINK / USD
+- MIM / USD
+- MOVR / USD
+- USDC / USD
+- USDT / USD
+- WBTC / USD
+
+
+### Scroll Mainnet
+
+- AAVE / USD
+- BTC / USD
+- CRV / USD
+- DAI / USD
+- ETH / USD
+- LINK / USD
+- RETH / ETH
+- STG / USD
+- USDC / USD
+- USDT / USD
+- WSTETH / ETH
+- wstETH-stETH Exchange Rate
+
+
+### Base Mainnet
+
+- APT / USD
+- CBETH / ETH
+- CBETH / USD
+- cbETH-ETH Exchange Rate
+- COMP / USD
+- DAI / USD
+- ETH / USD
+- LINK / ETH
+- LINK / USD
+- OP / USD
+- RETH / ETH
+- RSR / USD
+- sfrxETH-frxETH Exchange Rate
+- SNX / USD
+- SOL / USD
+- STETH / ETH
+- STG / USD
+- USDC / USD
+- USDT / USD
+- WBTC / USD
+- wstETH-ETH Exchange Rate
+- wstETH-stETH Exchange Rate
+- YFI / USD
+
+
+### Moonbeam Mainnet
+
+- ATOM / USD
+- BNB / USD
+- BRL / USD
+- BTC / USD
+- CAKE / USD
+- DAI / USD
+- DOT / USD
+- ETH / USD
+- FRAX / USD
+- GLMR / USD
+- LINK / USD
+- USDC / USD
+- USDT / USD
+- WBTC / USD
+
+
+### Celo Mainnet
+
+- BTC / USD
+- CELO / USD
+- ETH / USD
+- EUR / USD
+- LINK / USD
+- USDC / USD
+- USDT / USD

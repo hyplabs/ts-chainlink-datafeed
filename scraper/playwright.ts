@@ -1,63 +1,51 @@
+import path, { dirname } from "path";
 import { chromium } from "playwright";
 import fs from "fs";
-import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
-const getContractAddressFromUrl = (url: string) => {
-  const split = url.split("/");
-  return split[split.length - 1];
-};
+const ethereumAddressRegex = /0x[a-fA-F0-9]{40}/g;
 
-const urlList = [
-  "https://data.chain.link/ethereum/mainnet",
-  "https://data.chain.link/polygon/mainnet",
-  "https://data.chain.link/arbitrum/mainnet",
-  "https://data.chain.link/xdai/mainnet",
-  "https://data.chain.link/harmony/mainnet",
-  "https://data.chain.link/moonriver/mainnet",
-  "https://data.chain.link/celo/mainnet",
-  "https://data.chain.link/bsc/mainnet",
-  "https://data.chain.link/optimism/mainnet",
-  "https://data.chain.link/avalanche/mainnet",
-  "https://data.chain.link/fantom/mainnet",
-  "https://data.chain.link/base/base",
-  "https://data.chain.link/moonbeam/mainnet",
-  "https://data.chain.link/metis/mainnet",
-  "https://data.chain.link/scroll/mainnet",
-];
+const dataFeedUrl = "https://data.chain.link/feeds";
+
+let blockchains: Record<string, Record<string, string>> = {};
 
 const getChainlinkDataFeeds = async (url: string) => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   await page.goto(url);
-  const result = {};
   while (true) {
     const table = await page.$("table");
     if (!table) {
       console.log("Missing table for: ", url);
-      continue;
+      break;
     }
     const rows = await table.$$("tr");
     for (let i = 1; i < rows.length; i++) {
       const columns = await rows[i].$$("td");
+      const chain = await columns[1].innerText(); // Network
+      const link = await columns[3].$("a");
+      const url = await link?.getAttribute("href");
+      const extractedAddress = url?.match(ethereumAddressRegex)?.[0];
+
       const feed = {
         name: await columns[0].innerText(),
-        link: await columns[2].$("a"),
+        address: extractedAddress,
       };
-      if (!feed.link) {
-        console.log("Missing link for: ", feed.name);
-        continue;
+      if (!feed.address) {
+        console.log("Could not extract address for : ", feed.name);
+        break;
       }
-      const address = await feed.link.getAttribute("href");
-      if (!address) {
-        console.log("Missing address for: ", feed.name);
-        continue;
+
+      if (!blockchains[chain]) {
+        blockchains[chain] = {};
       }
-      result[`${feed.name}`] = getContractAddressFromUrl(address);
-      console.log(`${feed.name}`, result[`${feed.name}`]);
+
+      blockchains[chain][feed.name] = feed.address;
+      console.log(`${chain} : ${feed.name} : ${feed.address}`);
     }
     const nextButton = await page.getByRole("button", { name: "Next" });
     if (await nextButton.isDisabled()) {
+      console.log("Next button is disabled, exiting");
       break;
     }
     if (nextButton) {
@@ -67,31 +55,31 @@ const getChainlinkDataFeeds = async (url: string) => {
     }
   }
   await browser.close();
-  return result;
 };
+
+await getChainlinkDataFeeds(dataFeedUrl);
+
+console.log(blockchains);
+console.log(Object.keys(blockchains).length);
 
 const currentModuleURL = import.meta.url;
 const currentModulePath = fileURLToPath(currentModuleURL);
 
-let blockchains: Record<string, any> = {};
+for (const chain in blockchains) {
+  const data = blockchains[chain];
+  const simpleName = chain.split(" ")[0].toLowerCase();
 
-for (const url of urlList) {
-  const result = await getChainlinkDataFeeds(url);
-  const split = url.split("/");
-  const blockchain = split[split.length - 2];
-  blockchains[blockchain] = result;
-
-  const dataFeed = `${blockchain}.ts`;
+  const dataFeed = `${simpleName}.ts`;
 
   const dataFeedPathFull = path.join(
     dirname(currentModulePath),
     "../src/dataFeeds",
     dataFeed
   );
-  const stringifiedResult = JSON.stringify(result);
+  const stringifiedResult = JSON.stringify(data);
   fs.writeFile(
     dataFeedPathFull,
-    `export const ${blockchain}DataFeeds = ${stringifiedResult} as const;`,
+    `export const ${simpleName}DataFeeds = ${stringifiedResult} as const;`,
     (err) => {
       if (err) {
         console.log(err);
