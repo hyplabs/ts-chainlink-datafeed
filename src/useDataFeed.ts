@@ -7,8 +7,17 @@ export const useDataFeed = <K extends keyof any>({
   chainDataFeeds,
   feedsToSubscribeTo,
 }: {
+  /**
+   * The Viem client.
+   */
   viemClient: PublicClient<Transport, Chain>;
+  /**
+   * The data feed object containing all available data feeds.
+   */
   chainDataFeeds: Record<K, `0x${string}`>;
+  /**
+   * The data feeds to subscribe to.
+   */
   feedsToSubscribeTo: K[];
 }) => {
   const [client] = useState(viemClient);

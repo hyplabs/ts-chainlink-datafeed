@@ -6,4 +6,5 @@ export default defineConfig({
   sourcemap: false,
   treeshake: true,
   clean: true,
+  external: ["react"],
 });
