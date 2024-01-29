@@ -1,7 +1,7 @@
 {
   "name": "@hypotenuselabs/ts-chainlink-datafeed",
   "license": "MIT",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Typescript library for interacting with Chainlink datafeeds",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
