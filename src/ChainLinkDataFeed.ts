@@ -1,6 +1,11 @@
 import type { Chain } from "viem/chains";
 import { EAC } from "./abis/EAC.js";
-import type { GetContractReturnType, HttpTransport, PublicClient } from "viem";
+import type {
+  GetContractReturnType,
+  HttpTransport,
+  PublicClient,
+  Transport,
+} from "viem";
 import { createPublicClient, getContract } from "viem";
 import { formatRoundData } from "./utils.js";
 
@@ -27,7 +32,7 @@ export default class ChainLinkDataFeed {
     viemClient,
   }: {
     contractAddress: EVMAddress;
-    viemClient: ReturnType<typeof createPublicClient>;
+    viemClient: PublicClient<Transport, Chain>;
     rank?: boolean;
   }) {
     this.contractAddress = contractAddress;
