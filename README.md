@@ -2,6 +2,214 @@
 
 This TypeScript project provides a ChainLink datafeed library that can be used to retrieve data from any EVM chain on http://data.chain.link.
 
+## 🚀 Use cases
+
+1. You want to read a single data feed like ETH/USD on Ethereum/Polygon/Arbitrum etc?
+
+```typescript
+import { polygonDataFeeds } from "@hypotenuselabs/ts-chainlink-datafeed";
+import { createPublicClient, http } from "viem";
+import { polygon } from "viem/chains";
+
+const RPCUrl = "https://your-rpc-url.com"; // https://chainlist.org for a list of public RPCs
+
+const callClient = createPublicClient({
+  transport: http(RPCUrl), // can also use websocket(RPCUrl) for websocket RPCs
+  chain: polygon,
+  batch: {
+    multicall: true,
+  },
+});
+
+// All possible data feeds for Polygon
+const EthUSD = polygonDataFeeds["ETH / USD"];
+
+const ethUsdDataFeed = new ChainLinkDataFeed({
+  chain: polygon,
+  contractAddress: EthUSD,
+  viemClient: publicClient,
+});
+
+// We need to run this method to set the decimals and description
+await ethUsdDataFeed.updateMetadata();
+
+setInterval(() => {
+  console.log(
+    await ethUsdDataFeed.getLatestRoundData(true)
+  );
+}, 5000) // You can use this to update the price every 5 seconds
+/**
+* {
+*  roundId: 36893488147426144869n,
+*  answer: '2379.44', // $2379.44
+*  time: 2024-01-10T13:08:43.000Z,
+*  description: 'ETH / USD'
+* }  
+*/
+```
+
+2. You want to subscribe to a single data feed for ETH/USD on Ethereum/Polygon/Arbitrum etc?
+
+```typescript
+// You can use the same RPC public client setup as above.
+const ethUsdFeed = polygonDataFeeds["ETH / USD"];
+
+subscribeToChainLinkPriceUpdates({
+  feedAddresses: [...ethUsdFeed],
+  publicClient: callClient,
+  onLogsFunction: (arrayOfLogs) => 
+    arrayOfLogs.forEach((log) => {
+      // every time there is an update on chain, this function will be called
+      console.log(`Asset: ${log.description}`); // ETH / USD - The description of the data feed
+      console.log(`Decimals: ${log.decimals}`); // The number of decimals the answer uses
+      console.log(`🔘 Round ID: ${log.roundId}`); // The roundId of the answer
+      console.log(`📈 Answer: ${log.current}`); // The price of the asset without decimals
+      console.log(`⏰ Time: ${log.updatedAt}`); // The time the answer was last updated
+    }),
+});
+```
+More detailed examples can be found in the [example folder](./example).
+
+
+3. You want to subscribe to multiple data feeds on a single chain?
+
+```typescript
+const feeds = [
+  polygonDataFeeds["ETH / USD"],
+  polygonDataFeeds["BTC / USD"],
+  polygonDataFeeds["LINK / USD"],
+  polygonDataFeeds["UNI / USD"],
+  polygonDataFeeds["USDC / USD"],
+  polygonDataFeeds["USDT / USD"],
+  polygonDataFeeds["WBTC / USD"],
+  polygonDataFeeds["wstETH-stETH Exchange Rate"],
+]
+
+subscribeToChainLinkPriceUpdates({
+  feedAddresses: feeds,
+  publicClient: callClient,
+  onLogsFunction: (arrayOfLogs) => 
+    arrayOfLogs.forEach((log) => {
+      // every time there is an update on chain, this function will be called
+      console.log(`Asset: ${log.description}`); // ETH / USD - The description of the data feed
+      console.log(`Decimals: ${log.decimals}`); // The number of decimals the answer uses
+      console.log(`🔘 Round ID: ${log.roundId}`); // The roundId of the answer
+      console.log(`📈 Answer: ${log.current}`); // The price of the asset without decimals
+      console.log(`⏰ Time: ${log.updatedAt}`); // The time the answer was last updated
+    }),
+});
+```
+More detailed examples can be found in the [example folder](./example).
+
+4. You want to subscribe to multiple data feeds on multiple chains?
+
+```typescript
+import { polygon, ethereum } from "viem/chains";
+
+const ethereumClient = createPublicClient({
+  transport: http(ethereumRpcUrl), // can also use websocket(RPCUrl) for websocket RPCs
+  chain: ethereum,
+  batch: {
+    multicall: true,
+  },
+});
+
+const ethereumFeeds = [
+  ethereumDataFeeds["ETH / USD"],
+  ethereumDataFeeds["BTC / USD"],
+]
+
+subscribeToChainLinkPriceUpdates({
+  feedAddresses: feeds,
+  publicClient: polygonClient,
+  onLogsFunction: (arrayOfLogs) => 
+    arrayOfLogs.forEach((log) => {
+      // every time there is an update on chain, this function will be called
+      console.log(`Asset: ${log.description}`); // ETH / USD - The description of the data feed
+      console.log(`Decimals: ${log.decimals}`); // The number of decimals the answer uses
+      console.log(`🔘 Round ID: ${log.roundId}`); // The roundId of the answer
+      console.log(`📈 Answer: ${log.current}`); // The price of the asset without decimals
+      console.log(`⏰ Time: ${log.updatedAt}`); // The time the answer was last updated
+    }),
+});
+
+const polygonClient = createPublicClient({
+  transport: http(polygonRpcUrl), // can also use websocket(RPCUrl) for websocket RPCs
+  chain: polygon,
+  batch: {
+    multicall: true,
+  },
+});
+
+const polygonFeeds = [
+  polygonDataFeeds["ETH / USD"],
+  polygonDataFeeds["BTC / USD"],
+]
+
+subscribeToChainLinkPriceUpdates({
+  feedAddresses: feeds,
+  publicClient: polygonClient,
+  onLogsFunction: (arrayOfLogs) => 
+    arrayOfLogs.forEach((log) => {
+      // every time there is an update on chain, this function will be called
+      console.log(`Asset: ${log.description}`); // ETH / USD - The description of the data feed
+      console.log(`Decimals: ${log.decimals}`); // The number of decimals the answer uses
+      console.log(`🔘 Round ID: ${log.roundId}`); // The roundId of the answer
+      console.log(`📈 Answer: ${log.current}`); // The price of the asset without decimals
+      console.log(`⏰ Time: ${log.updatedAt}`); // The time the answer was last updated
+    }),
+});
+```
+More detailed examples can be found in the [example folder](./example).
+
+5. You want to subscribe to data feeds in a React application?
+
+```typescript
+import { createPublicClient, fallback, http } from "viem";
+import { Row } from "./@/components/Row";
+import { polygon } from "viem/chains";
+import {
+  polygonDataFeeds,
+  useDataFeed,
+} from "@hypotenuselabs/ts-chainlink-datafeed";
+
+const PolygonRPCList = [
+  "https://1rpc.io/matic",
+]
+
+const transports = fallback(PolygonRPCList.map((rpc) => http(rpc)));
+
+const polygonClient = createPublicClient({
+  transport: transports,
+  chain: polygon,
+  batch: {
+    multicall: true,
+  },
+});
+
+export default function App() {
+  const polygon = useDataFeed({
+    viemClient: polygonClient,
+    chainDataFeeds: polygonDataFeeds,
+    feedsToSubscribeTo: Object.keys(polygonDataFeeds),
+  });
+
+  const feed = Object.values(polygon);
+  const length = Object.keys(polygonDataFeeds).length;
+
+  return (
+    <main className="max-w-[1080px] m-auto my-10">
+      <Row
+        chainName={`Polygon - As prices update onchain, they will be displayed below. Total feeds: ${length}`}
+        feeds={feed}
+      />
+    </main>
+  );
+}
+```
+
+See [datafeeds-example-site repo](https://github.com/thevolcanomanishere/datafeeds-example-site) and a live running example at [https://chainlink-datafeeds-example-taupe.vercel.app/](https://chainlink-datafeeds-example-taupe.vercel.app/)
+
 ## 📋 Features
 
 - Get the latest price of any asset featured on [Chainlink](https://data.chain.link/).
@@ -33,83 +241,6 @@ import { polygonDataFeeds } from "@hypotenuselabs/ts-chainlink-datafeed";
 const EthUSD = polygonDataFeeds["ETH / USD"];
 
 ```
-
-## 🥇 Get the current data for a single feed
-
-This is most useful for getting the very latest price of a feed.
-
-```typescript
-import { createPublicClient, webSocket } from "viem";
-
-const RPCUrl = "wss://-------";
-
-const callClient = createPublicClient({
-  transport: webSocket(RPCUrl), // can also use http(RPCUrl) for non wss RPCs
-  chain: mainnet,
-  batch: {
-    multicall: true,
-  },
-});
-
-const EthUSD = polygonDataFeeds["ETH / USD"];
-
-const ethUsdDataFeed = new ChainLinkDataFeed({
-  chain: polygon,
-  contractAddress: EthUSD,
-  viemClient: publicClient,
-});
-
-// We need to run this method to set the decimals and description
-await ethUsdDataFeed.updateMetadata();
-
-console.log(
-  "Price of ETH / USD :",
-  await ethUsdDataFeed.getLatestRoundData(true)
-);
-/**
-* {
-*  roundId: 36893488147426144869n,
-*  answer: '2379.44',
-*  time: 2024-01-10T13:08:43.000Z,
-*  description: 'ETH / USD'
-* }  
-*/
-```
-
-More detailed examples can be found in the [example folder](./example).
-
-## 🔑 Subscribing to one of more price feed updates
-
-If you need to continually have the very latest price of a feed, you can subscribe to updates. This will give you the latest price whenever there is an update onchain. Different blockchains have different onchain update criteria. The cheaper chains update more frequently.
-
-```typescript
-import { createPublicClient, webSocket } from "viem";
-
-const RPCUrl = "wss://-------" | "https://-----";
-
-const callClient = createPublicClient({
-  transport: webSocket(RPCUrl), // can also use http(RPCUrl) for non wss RPCs
-  chain: mainnet,
-  batch: {
-    multicall: true,
-  },
-});
-
-subscribeToChainLinkPriceUpdates({
-  feedAddresses: Object.values(ethereumDataFeeds),
-  publicClient: callClient,
-  onLogsFunction: (arrayOfLogs) =>
-    arrayOfLogs.forEach((log) => {
-      console.log(`Asset: ${log.description}`); // ETH / USD - The description of the data feed
-      console.log(`Decimals: ${log.decimals}`); // The number of decimals the answer uses
-      console.log(`🔘 Round ID: ${log.roundId}`); // The roundId of the answer
-      console.log(`📈 Answer: ${log.current}`); // The price of the asset without decimals
-      console.log(`⏰ Time: ${log.updatedAt}`); // The time the answer was last updated
-    }),
-});
-```
-More detailed examples can be found in the [example folder](./example).
-
 ## 🧵 Custom Chains
 
 If you are using a chain that does not have a chain configuration in Viem, you can easily create your own. See [this example for Scroll](./example/scroll.ts).
