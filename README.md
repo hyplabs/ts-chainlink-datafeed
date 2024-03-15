@@ -56,7 +56,7 @@ const EthUSD = polygonDataFeeds["ETH / USD"];
 const ethUsdDataFeed = new ChainLinkDataFeed({
   chain: polygon,
   contractAddress: EthUSD,
-  viemClient: publicClient,
+  viemClient: callClient,
 });
 
 // We need to run this method to set the decimals and description
