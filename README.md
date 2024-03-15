@@ -269,7 +269,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - 1INCH / USD
 - AAVE / ETH
 - AAVE / USD
-- ADA / USD
 - ALCX / ETH
 - AMPL / ETH
 - AMPL / USD
@@ -277,6 +276,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - APE / ETH
 - APE / USD
 - ARB / USD
+- ARKB Reserves
 - AUD / USD
 - AVAX / USD
 - Azuki Floor Price / ETH
@@ -312,18 +312,16 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - CVX / USD
 - DAI / ETH
 - DAI / USD
-- DOGE / USD
 - Doodles Floor Price
-- DOT / USD
 - DPI / ETH
 - DPI / USD
-- eFIL PoR
 - ENJ / ETH
 - ENS / USD
 - ETH / BTC
 - ETH / USD
 - EUR / USD
 - EURR Reserves
+- Fast Gas / Gwei
 - FDUSD / USD
 - FIL / ETH
 - FRAX / ETH
@@ -336,11 +334,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - GHO / USD
 - GRT / ETH
 - GRT / USD
-- GUSD / USD
-- HBAR / USD
 - HBTC PoR
 - HIGH / USD
-- HOPE PoR
 - IB01 / USD
 - IBTA / USD
 - IMX / USD
@@ -370,8 +365,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - PERP / ETH
 - Pudgy Penguins Floor Price
 - PYUSD / USD
-- RAI / ETH
-- RAI / USD
 - RDNT / USD
 - REN / ETH
 - RETH / ETH
@@ -392,9 +385,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - SUSD / ETH
 - SUSHI / ETH
 - SUSHI / USD
+- Swell ETH PoR
+- SWETH / ETH
 - SXP / USD
 - Total Marketcap / USD
-- TRIBE / ETH
 - TRY / USD
 - TUSD / ETH
 - TUSD / USD
@@ -433,6 +427,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - ATOM / USD
 - AUD / USD
 - AVAX / USD
+- AXL / USD
 - AXS / USD
 - BAL / USD
 - BNB / USD
@@ -449,12 +444,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - CNY / USD
 - COMP / USD
 - CRV / USD
+- CRVUSD / USD
 - CVX / USD
 - DAI / USD
 - DODO / USD
 - DOGE / USD
 - DOT / USD
-- DPX / USD
 - ETH / USD
 - ETH-USD Total Marketcap
 - EUR / USD
@@ -479,12 +474,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - LDO / USD
 - LINK / ETH
 - LINK / USD
+- LTC / USD
 - LUSD / USD
 - MAGIC / USD
 - MATIC / USD
 - META / USD
 - MIM / USD
-- MIMATIC / USD
 - MKR / USD
 - MSFT / USD
 - NEAR / USD
@@ -514,6 +509,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - STG / USD
 - SUSHI / USD
 - swETH / ETH Exchange Rate
+- TAO / USD
+- TIA / USD
 - Total Marketcap USD
 - TRY / USD
 - TSLA / USD
@@ -524,6 +521,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - USDT / USD
 - WBTC / BTC
 - WBTC / USD
+- weETH / eETH Exchange Rate
 - WOO / USD
 - WSTETH / ETH
 - wstETH-stETH Exchange Rate
@@ -546,10 +544,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - AMZN / USD
 - ATOM / USD
 - AUD / USD
-- AUTO / USD
 - AVAX / USD
 - AXS / USD
-- BAC / USD
 - BAND / BNB
 - BAND / USD
 - BCH / BNB
@@ -632,14 +628,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - SGD / USD
 - SHIB / USD
 - SOL / USD
-- SPCE / USD
 - SPELL / USD
 - SPY / USD
 - SUSHI / USD
 - SXP / USD
 - TRX / USD
 - TSLA / USD
-- TSM / USD
 - TUSD / USD
 - TWT / BNB
 - UNI / BNB
@@ -649,7 +643,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - USDD / USD
 - USDT / BNB
 - USDT / USD
-- VAI / USD
 - VET / USD
 - WIN / USD
 - WING / USD
@@ -691,6 +684,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - GNO / USD
 - GRT / USD
 - JPY / USD
+- LINK / DAI
 - LINK / USD
 - MKR / USD
 - MXN / USD
@@ -709,117 +703,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - XAU / USD
 - YFI / USD
 - ZIL / USD
-
-
-### Optimism Mainnet
-
-- 1INCH / USD
-- AAVE / USD
-- ADA / USD
-- ALGO / USD
-- ANKR / USD
-- APE / USD
-- APT / USD
-- ARB / USD
-- ATOM / USD
-- AUD / USD
-- AVAX / USD
-- AXS / USD
-- BAL / USD
-- BCH / USD
-- BLUR / USD
-- BNB / USD
-- BOND / USD
-- BONK / USD
-- BRL / USD
-- BTC / USD
-- CBETH / ETH
-- CELO / USD
-- COMP / USD
-- CRV / USD
-- DAI / USD
-- DOGE / USD
-- DOT / USD
-- DYDX / USD
-- ENJ / USD
-- EOS / USD
-- ETC / USD
-- ETH / BTC
-- ETH / USD
-- EUR / USD
-- FET / USD
-- FIL / USD
-- FLOKI / USD
-- FLOW / USD
-- FRAX / USD
-- FTM / USD
-- FXS / USD
-- GBP / USD
-- GMX / USD
-- GRT / USD
-- ICP / USD
-- IMX / USD
-- INJ / USD
-- INR / USD
-- JPY / USD
-- KNC / USD
-- LDO / USD
-- LINK / ETH
-- LINK / USD
-- LTC / USD
-- LUSD / USD
-- MATIC / USD
-- MAV / USD
-- MEME / USD
-- MIMATIC / USD
-- MKR / USD
-- NEAR / USD
-- ONE / USD
-- OP / USD
-- PEPE / USD
-- PERP / USD
-- PYTH / USD
-- RETH / ETH
-- rETH-ETH Exchange Rate
-- RNDR / USD
-- RPL / USD
-- RUNE / USD
-- SAND / USD
-- SEI / USD
-- sFRAX / FRAX Exchange Rate
-- sfrxETH / frxETH-Exchange-Rate
-- SHIB / USD
-- SNX / USD
-- SOL / USD
-- STETH / ETH
-- STETH / USD
-- SUI / USD
-- SUSD / USD
-- SUSHI / USD
-- TIA / USD
-- Total Marketcap USD
-- TRB / USD
-- TRX / USD
-- UMA / USD
-- UNI / USD
-- USDC / USD
-- USDT / USD
-- WAVES / USD
-- WBTC / USD
-- WLD / USD
-- WSTETH / ETH
-- WSTETH / USD
-- wstETH-stETH Exchange Rate
-- XAG / USD
-- XAU / USD
-- XLM / USD
-- XMR / USD
-- XRP / USD
-- XTZ / USD
-- YFI / USD
-- ZEC / USD
-- ZIL / USD
-- ZRX / USD
 
 
 ### Polygon Mainnet
@@ -865,6 +748,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - CHZ / USD
 - CNY / USD
 - COMP / USD
+- COPW Reserves
 - CRV / ETH
 - CRV / USD
 - CVX / USD
@@ -914,7 +798,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - MATIC / ETH
 - MATIC / USD
 - MIM / USD
-- MIMATIC / USD
 - MKR / ETH
 - MKR / USD
 - MLN / ETH
@@ -928,12 +811,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - OMG / USD
 - PAXG / USD
 - PHP / USD
-- PLA / USD
 - PLN / USD
 - QNT / USD
-- RAI / USD
+- QUICK / USD
 - SAND / USD
-- SE / USD
 - SEK / USD
 - SGD / USD
 - SHIB / USD
@@ -967,6 +848,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - XAU / USD
 - XLM / USD
 - XMR / USD
+- XPT / USD
 - XRP / USD
 - XTZ / USD
 - YFI / ETH
@@ -991,6 +873,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - CHF / USD
 - CHZ / USD
 - COMP / USD
+- COQ / USD
 - CRV / USD
 - CVX / USD
 - DAI / USD
@@ -1014,7 +897,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - MANA / USD
 - MATIC / USD
 - MIM / USD
-- MIMATIC / USD
 - MKR / USD
 - NEAR / USD
 - QI / USD
@@ -1035,9 +917,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - WOO / ETH
 - wstETH-stETH Exchange Rate
 - XAU / USD
-- XAVA / USD
 - YFI / USD
-- ZRX / USD
 
 
 ### Fantom Opera
@@ -1045,7 +925,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - AAVE / USD
 - ALPACA / USD
 - BNB / USD
-- BOO / USD
 - BTC / USD
 - Calculated sFTMX / USD
 - CHF / USD
@@ -1060,7 +939,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - LINK / FTM
 - LINK / USD
 - MIM / USD
-- MIMATIC / USD
 - OHM Index
 - SNX / USD
 - SPELL / USD
@@ -1079,6 +957,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - DAI / USD
 - ETH / USD
 - EUR / USD
+- LINK / ETH
 - LINK / USD
 - MATIC / USD
 - USDC / USD
@@ -1094,7 +973,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - ETH / USD
 - LINK / USD
 - METIS / USD
-- MIMATIC / USD
 - USDC / USD
 - USDT / USD
 
@@ -1118,15 +996,125 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - WBTC / USD
 
 
+### Optimism Mainnet
+
+- AAVE / USD
+- ADA / USD
+- ALGO / USD
+- APE / USD
+- APT / USD
+- ARB / USD
+- ATOM / USD
+- AUD / USD
+- AVAX / USD
+- AXS / USD
+- BAL / USD
+- BCH / USD
+- BLUR / USD
+- BNB / USD
+- BONK / USD
+- BRL / USD
+- BTC / USD
+- CBETH / ETH
+- COMP / USD
+- CRV / USD
+- CVX / USD
+- DAI / USD
+- DOGE / USD
+- DOT / USD
+- DYDX / USD
+- EOS / USD
+- ETC / USD
+- ETH / BTC
+- ETH / USD
+- EUR / USD
+- FET / USD
+- FIL / USD
+- FLOW / USD
+- FRAX / USD
+- FTM / USD
+- FXS / USD
+- GBP / USD
+- GMX / USD
+- GRT / USD
+- ICP / USD
+- IMX / USD
+- INJ / USD
+- INR / USD
+- JPY / USD
+- JTO / USD
+- JUP / USD
+- KNC / USD
+- LDO / USD
+- LINK / ETH
+- LINK / USD
+- LTC / USD
+- LUSD / USD
+- MATIC / USD
+- MAV / USD
+- MEME / USD
+- MKR / USD
+- NEAR / USD
+- ONE / USD
+- OP / USD
+- ORDI / USD
+- PENDLE / USD
+- PEPE / USD
+- PERP / USD
+- PYTH / USD
+- RETH / ETH
+- rETH-ETH Exchange Rate
+- RNDR / USD
+- RPL / USD
+- RUNE / USD
+- SAND / USD
+- SEI / USD
+- sFRAX / FRAX Exchange Rate
+- sfrxETH / frxETH-Exchange-Rate
+- SHIB / USD
+- SNX / USD
+- SOL / USD
+- STETH / USD
+- STRK / USD
+- SUI / USD
+- SUSD / USD
+- SUSHI / USD
+- TIA / USD
+- Total Marketcap USD
+- TRX / USD
+- UNI / USD
+- USDC / USD
+- USDT / USD
+- WAVES / USD
+- WBTC / USD
+- WLD / USD
+- WSTETH / ETH
+- WSTETH / USD
+- wstETH-stETH Exchange Rate
+- XAG / USD
+- XAU / USD
+- XLM / USD
+- XMR / USD
+- XRP / USD
+- XTZ / USD
+- YFI / USD
+
+
 ### Scroll Mainnet
 
 - AAVE / USD
+- AVAX / USD
+- BNB / USD
 - BTC / USD
 - CRV / USD
 - DAI / USD
+- DOGE / USD
 - ETH / USD
+- LINK / ETH
 - LINK / USD
 - RETH / ETH
+- SOL / USD
+- STETH / USD
 - STG / USD
 - USDC / USD
 - USDT / USD
@@ -1137,6 +1125,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ### Base Mainnet
 
 - APT / USD
+- AXL / USD
 - CBETH / ETH
 - CBETH / USD
 - cbETH-ETH Exchange Rate
@@ -1183,6 +1172,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - BTC / USD
 - CELO / USD
+- CUSD / USD
 - ETH / USD
 - EUR / USD
 - LINK / USD
