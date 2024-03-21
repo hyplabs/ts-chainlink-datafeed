@@ -319,8 +319,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - ENS / USD
 - ETH / BTC
 - ETH / USD
+- ETHx / ETH
 - EUR / USD
 - EURR Reserves
+- ezETH / ETH
 - Fast Gas / Gwei
 - FDUSD / USD
 - FIL / ETH
@@ -350,6 +352,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - LUSD / USD
 - MANA / ETH
 - MATIC / USD
+- MAVIA / USD
 - MAYC Floor Price
 - MIM / USD
 - MKR / ETH
@@ -369,6 +372,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - REN / ETH
 - RETH / ETH
 - RPL / USD
+- RSETH / ETH
 - RSR / USD
 - SAND / USD
 - SGD / USD
@@ -401,6 +405,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - USDP / USD
 - USDT / ETH
 - USDT / USD
+- USDV / USD
 - VeeFriends Floor Price
 - WBTC / BTC
 - WBTC PoR
@@ -452,6 +457,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - DOT / USD
 - ETH / USD
 - ETH-USD Total Marketcap
+- ETHx / ETH
 - EUR / USD
 - EURC / USD
 - FRAX / USD
@@ -495,6 +501,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - RETH / ETH
 - rETH-ETH Exchange Rate
 - RPL / USD
+- RSR / USD
 - SEK / USD
 - sFRAX / FRAX Exchange Rate
 - sfrxETH-frxETH Exchange Rate
@@ -510,6 +517,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - SUSHI / USD
 - swETH / ETH Exchange Rate
 - TAO / USD
+- TBTC / USD
 - TIA / USD
 - Total Marketcap USD
 - TRY / USD
@@ -527,6 +535,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - wstETH-stETH Exchange Rate
 - WTI / USD
 - XAG / USD
+- XAI / USD
 - XAU / USD
 - XRP / USD
 - YFI / USD
@@ -1079,6 +1088,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - SUI / USD
 - SUSD / USD
 - SUSHI / USD
+- TBTC / USD
 - TIA / USD
 - Total Marketcap USD
 - TRX / USD
