@@ -257,6 +257,7 @@ You can get a single feed by importing the chain feed constant that you need and
 import { polygonDataFeeds } from "@hypotenuselabs/ts-chainlink-datafeed";
 
 const EthUSD = polygonDataFeeds["ETH / USD"];
+// 0xF9680D99D6C9589e2a93a78A04A279e509205945
 
 ```
 ## 🧵 Custom Chains
