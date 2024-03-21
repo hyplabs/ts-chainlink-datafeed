@@ -6,7 +6,7 @@ import type {
   PublicClient,
   Transport,
 } from "viem";
-import { createPublicClient, getContract } from "viem";
+import { getContract } from "viem";
 import { formatRoundData } from "./utils.js";
 
 type EACContract = GetContractReturnType<
@@ -27,6 +27,7 @@ export default class ChainLinkDataFeed {
   public description = "";
   public contractAddress: EVMAddress;
   public isWorking = true;
+  private isMetadataUpdated = false;
   constructor({
     contractAddress,
     viemClient,
@@ -47,8 +48,15 @@ export default class ChainLinkDataFeed {
     try {
       this.decimals = await this.contract.read.decimals();
       this.description = await this.contract.read.description();
+      this.isMetadataUpdated = true;
     } catch (e) {
       this.isWorking = false;
+    }
+  }
+
+  async checkIfMetadataIsUpdated() {
+    if (!this.isMetadataUpdated) {
+      await this.updateMetadata();
     }
   }
 
@@ -61,6 +69,7 @@ export default class ChainLinkDataFeed {
     format: false
   ): Promise<readonly [bigint, bigint, bigint, bigint, bigint]>;
   async getLatestRoundData(format: boolean) {
+    await this.checkIfMetadataIsUpdated();
     const result = await this.contract.read.latestRoundData();
     if (format) {
       return formatRoundData(result, this.decimals, this.description);
@@ -69,6 +78,7 @@ export default class ChainLinkDataFeed {
   }
 
   async *getRoundDataInterval(intervalSeconds: number) {
+    await this.checkIfMetadataIsUpdated();
     let lastRoundId = 0n;
     while (true) {
       const roundData = await this.contract.read.latestRoundData();
@@ -94,6 +104,7 @@ export default class ChainLinkDataFeed {
    * @returns The round data, optionally formatted.
    */
   async getRoundData(roundId: bigint, format = true) {
+    await this.checkIfMetadataIsUpdated();
     const result = await this.contract.read.getRoundData([roundId]);
     if (format) {
       return formatRoundData(result, this.decimals, this.description);
@@ -106,10 +117,12 @@ export default class ChainLinkDataFeed {
    *
    */
   async getCurrentPhase() {
+    await this.checkIfMetadataIsUpdated();
     return this.contract.read.phaseId();
   }
 
   async getPhaseAggregator() {
+    await this.checkIfMetadataIsUpdated();
     const phaseId = await this.contract.read.phaseId();
     const aggregator = await this.contract.read.phaseAggregators([phaseId]);
     return aggregator as EVMAddress;

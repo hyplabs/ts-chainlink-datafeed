@@ -3,6 +3,7 @@ import { bsc } from "viem/chains";
 import { bscDataFeeds } from "../src/dataFeeds/bsc.js";
 import { subscribeToChainLinkPriceUpdates } from "../src/Aggregator.js";
 import { useWebsocketOrHttpTransport } from "../src/utils.js";
+import { loadBalance } from "@ponder/utils";
 
 const rpcList = [
   "https://bsc-dataseed1.bnbchain.org",
@@ -10,7 +11,7 @@ const rpcList = [
   "wss://bsc.publicnode.com",
 ];
 
-const transports = fallback(
+const transports = loadBalance(
   rpcList.map((rpc) => useWebsocketOrHttpTransport(rpc))
 );
 

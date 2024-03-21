@@ -1,8 +1,9 @@
-import { createPublicClient, defineChain, fallback } from "viem";
+import { createPublicClient, defineChain } from "viem";
 import { subscribeToChainLinkPriceUpdates } from "../src/Aggregator.js";
 import { scrollDataFeeds } from "../src/dataFeeds/scroll.js";
 import { useWebsocketOrHttpTransport } from "../src/utils.js";
 import ChainLinkDataFeed from "../src/ChainLinkDataFeed.js";
+import { loadBalance } from "@ponder/utils";
 
 const rpcList = [
   "https://scroll-mainnet.public.blastapi.io",
@@ -10,7 +11,7 @@ const rpcList = [
   "https://rpc.scroll.io",
 ];
 
-const transports = fallback(
+const transports = loadBalance(
   rpcList.map((rpc) => useWebsocketOrHttpTransport(rpc))
 );
 
@@ -58,8 +59,6 @@ const feed = new ChainLinkDataFeed({
   contractAddress: scrollDataFeeds["ETH / USD"],
   viemClient: callClient,
 });
-
-await feed.updateMetadata();
 
 console.log("Price of ETH / USD :", await feed.getLatestRoundData(true));
 

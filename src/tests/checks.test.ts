@@ -30,8 +30,6 @@ test("Single data feed working", async () => {
     viemClient: client,
   });
 
-  await dataFeed.updateMetadata();
-
   const data = await dataFeed.getLatestRoundData(true);
 
   console.log(data);

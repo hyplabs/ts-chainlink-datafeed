@@ -30,8 +30,6 @@ const ethUsdDataFeed = new ChainLinkDataFeed({
   viemClient: publicClient,
 });
 
-// We need to run this method to set the decimals and description
-await ethUsdDataFeed.updateMetadata();
 
 setInterval(() => {
   console.log(
@@ -229,6 +227,26 @@ npm install @hypotenuselabs/ts-chainlink-datafeed
 ## 🛜 RPCs
 
 You can get multiple RPCs for each chain from [Chainlist](https://chainlist.org/). If you create a fallback provider, you can have a redundant list of RPCs incase one fails or is slow to respond. The [example](./example/) has some code to help with this. You can use both http and websocket RPCs.
+
+You can distribute requests [round robin](https://avinetworks.com/glossary/round-robin-load-balancing/) by installing `@ponder/utils`.
+
+```typescript
+import { loadBalance } from "@ponder/utils";
+const polygonRpcList = [
+  "https://public.stackup.sh/api/v1/node/polygon-mainnet",
+  "https://polygon.gateway.tenderly.co",
+];
+
+const transports = loadBalance(
+  polygonRpcList.map((rpc) => useWebsocketOrHttpTransport(rpc))
+);
+
+const polyCallClient = createPublicClient({
+  name: "PolyCall",
+  transport: transports,
+  chain: polygon,
+});
+```
 
 ## 📦 Supported Chains - Extracting a feed
 

@@ -3,6 +3,7 @@ import { mainnet } from "viem/chains";
 import { ethereumDataFeeds } from "../src/dataFeeds/ethereum.js";
 import { subscribeToChainLinkPriceUpdates } from "../src/Aggregator.js";
 import { useWebsocketOrHttpTransport } from "../src/utils.js";
+import { loadBalance } from "@ponder/utils";
 
 const rpcList = [
   "https://eth.drpc.org",
@@ -10,7 +11,7 @@ const rpcList = [
   "https://rpc.mevblocker.io/noreverts",
 ];
 
-const transports = fallback(
+const transports = loadBalance(
   rpcList.map((rpc) => useWebsocketOrHttpTransport(rpc))
 );
 
@@ -23,6 +24,9 @@ const callClient = createPublicClient({
   },
 });
 
+/**
+ * Subscribe to Chainlink price updates
+ */
 subscribeToChainLinkPriceUpdates({
   feedAddresses: Object.values(ethereumDataFeeds),
   publicClient: callClient,

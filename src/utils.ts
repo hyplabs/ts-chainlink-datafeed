@@ -109,15 +109,6 @@ export async function* getPhaseAggregator({
   }
 }
 
-export const setupAllFeeds = async ({
-  dataFeeds,
-}: {
-  dataFeeds: ChainLinkDataFeed[];
-}) => {
-  await Promise.all(dataFeeds.map((feed) => feed.updateMetadata()));
-  return dataFeeds;
-};
-
 export const useWebsocketOrHttpTransport = (rpcUrl: string) => {
   if (rpcUrl.startsWith("ws")) return webSocket(rpcUrl);
   return http(rpcUrl);

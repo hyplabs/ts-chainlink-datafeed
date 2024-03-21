@@ -33,9 +33,6 @@ const ethUsdDataFeed = new ChainLinkDataFeed({
   viemClient: publicClient,
 });
 
-// We need to run this method to get the decimals and description
-await ethUsdDataFeed.updateMetadata();
-
 console.log(
   "Price of ETH / USD :",
   await ethUsdDataFeed.getLatestRoundData(true)
@@ -51,7 +48,6 @@ const feeds = contractAddresses.map((address) => {
 });
 
 for (const feed of feeds) {
-  await feed.updateMetadata();
   if (!feed.isWorking) {
     const key = Object.keys(polygonDataFeeds).find(
       (key) =>

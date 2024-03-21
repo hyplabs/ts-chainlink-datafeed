@@ -1,32 +1,33 @@
-import { createPublicClient, fallback, http, webSocket } from "viem";
-import { arbitrum } from "viem/chains";
-import { arbitrumDataFeeds } from "../src/dataFeeds/arbitrum.js";
+import { createPublicClient } from "viem";
+import { polygon } from "viem/chains";
+import { polygonDataFeeds } from "../src/dataFeeds/polygon.js";
 import { subscribeToChainLinkPriceUpdates } from "../src/Aggregator.js";
 import { useWebsocketOrHttpTransport } from "../src/utils.js";
 import { loadBalance } from "@ponder/utils";
 
-const arbitrumRpcList = [
-  "https://arbitrum.llamarpc.com",
-  "wss://arbitrum-one.publicnode.com",
-  "https://arbitrum.drpc.org",
+const polygonRpcList = [
+  "https://public.stackup.sh/api/v1/node/polygon-mainnet",
+  "https://polygon.gateway.tenderly.co",
+  "https://polygon.blockpi.network/v1/rpc/public",
+  "https://polygon-rpc.com",
 ];
 
 const transports = loadBalance(
-  arbitrumRpcList.map((rpc) => useWebsocketOrHttpTransport(rpc))
+  polygonRpcList.map((rpc) => useWebsocketOrHttpTransport(rpc))
 );
 
-const arbCallClient = createPublicClient({
-  name: "ArbCall",
+const polyCallClient = createPublicClient({
+  name: "PolyCall",
   transport: transports,
-  chain: arbitrum,
+  chain: polygon,
   batch: {
     multicall: true,
   },
 });
 
 subscribeToChainLinkPriceUpdates({
-  feedAddresses: Object.values(arbitrumDataFeeds),
-  publicClient: arbCallClient,
+  feedAddresses: Object.values(polygonDataFeeds),
+  publicClient: polyCallClient,
   onLogsFunction: (array) => {
     for (const feed of array) {
       console.log(`Asset: ${feed.description}`);

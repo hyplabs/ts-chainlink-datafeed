@@ -1,11 +1,7 @@
 import type { Chain, PublicClient, Transport } from "viem";
 import { AggregatorABI } from "./abis/Aggregator.js";
 import ChainLinkDataFeed from "./ChainLinkDataFeed.js";
-import {
-  formatLogWithMetadata,
-  getPhaseAggregator,
-  setupAllFeeds,
-} from "./utils.js";
+import { formatLogWithMetadata, getPhaseAggregator } from "./utils.js";
 
 /**
  * Subscribes to ChainLink price update events and returns an object containing
@@ -100,10 +96,6 @@ export const subscribeToChainLinkPriceUpdates = async ({
         contractAddress: address,
         viemClient: publicClient,
       });
-    });
-
-    await setupAllFeeds({
-      dataFeeds: allFeedContracts,
     });
 
     const allUnWatchPromises = allFeedContracts.map((feed) => {
