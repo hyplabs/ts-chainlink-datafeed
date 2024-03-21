@@ -17,6 +17,7 @@ import {
   subscribeToChainLinkPriceUpdates,
 } from "./Aggregator.js";
 import { useDataFeed } from "./useDataFeed.js";
+import { useWebsocketOrHttpTransport } from "./utils.js";
 
 export {
   baseDataFeeds,
@@ -39,4 +40,5 @@ export {
   subscribeToChainLinkPriceUpdate,
   subscribeToChainLinkPriceUpdates,
   useDataFeed,
+  useWebsocketOrHttpTransport,
 };

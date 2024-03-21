@@ -88,6 +88,7 @@ for (const chain in blockchains) {
   );
 }
 
+let count = 0;
 let markdown = "";
 Object.keys(blockchains).forEach((blockchain) => {
   // make first letter of blockchain uppercase
@@ -96,6 +97,7 @@ Object.keys(blockchains).forEach((blockchain) => {
   markdown += `\n\n### ${blockChainUpper}\n\n`;
   const feeds = blockchains[blockchain];
   Object.keys(feeds).forEach((feed) => {
+    count++;
     markdown += `- ${feed}\n`;
   });
 });
@@ -117,3 +119,5 @@ fs.writeFile(readmePath, newReadme, (err) => {
     console.log(err);
   }
 });
+
+console.log("Total feeds: ", count);
